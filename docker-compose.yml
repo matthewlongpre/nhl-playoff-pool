@@ -1,0 +1,15 @@
+# Local Postgres for cumulative leaderboard + ingest. Not required for `npm run build` / tests.
+services:
+  db:
+    image: postgres:17-alpine
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: realtime_api
+    ports:
+      - "5432:5432"
+    volumes:
+      - realtime_api_pgdata:/var/lib/postgresql/data
+
+volumes:
+  realtime_api_pgdata:

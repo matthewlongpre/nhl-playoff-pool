@@ -1,0 +1,286 @@
+{
+  "version": 1,
+  "source": "boxpool-FriendsOfLongpre.pdf (Entry Cutoff Apr 18 2026)",
+  "rounds": [
+    {
+      "round": 1,
+      "title": "East Fwd 1",
+      "options": [
+        { "kind": "skater", "label": "Kucherov, N", "nhlTeamAbbrev": "TBL" },
+        { "kind": "skater", "label": "Pastrnak, D", "nhlTeamAbbrev": "BOS" },
+        { "kind": "skater", "label": "Suzuki, N", "nhlTeamAbbrev": "MTL" },
+        { "kind": "skater", "label": "Caufield, C", "nhlTeamAbbrev": "MTL" },
+        { "kind": "skater", "label": "Guentzel, J", "nhlTeamAbbrev": "TBL" },
+        { "kind": "skater", "label": "Stutzle, T", "nhlTeamAbbrev": "OTT" }
+      ]
+    },
+    {
+      "round": 2,
+      "title": "East Fwd 2",
+      "options": [
+        { "kind": "skater", "label": "Hagel, B", "nhlTeamAbbrev": "TBL" },
+        { "kind": "skater", "label": "Thompson, T", "nhlTeamAbbrev": "BUF" },
+        { "kind": "skater", "label": "Aho, S", "nhlTeamAbbrev": "CAR" },
+        { "kind": "skater", "label": "Crosby, S", "nhlTeamAbbrev": "PIT" },
+        { "kind": "skater", "label": "Slafkovsky, J", "nhlTeamAbbrev": "MTL" },
+        { "kind": "skater", "label": "Batherson, D", "nhlTeamAbbrev": "OTT" }
+      ]
+    },
+    {
+      "round": 3,
+      "title": "East Fwd 3",
+      "options": [
+        { "kind": "skater", "label": "Konecny, T", "nhlTeamAbbrev": "PHI" },
+        { "kind": "skater", "label": "Svechnikov, A", "nhlTeamAbbrev": "CAR" },
+        { "kind": "skater", "label": "Ehlers, N", "nhlTeamAbbrev": "CAR" },
+        { "kind": "skater", "label": "Geekie, M", "nhlTeamAbbrev": "BOS" },
+        { "kind": "skater", "label": "Zegras, T", "nhlTeamAbbrev": "PHI" },
+        { "kind": "skater", "label": "Jarvis, S", "nhlTeamAbbrev": "CAR" }
+      ]
+    },
+    {
+      "round": 4,
+      "title": "East Fwd 4",
+      "options": [
+        { "kind": "skater", "label": "Zacha, P", "nhlTeamAbbrev": "BOS" },
+        { "kind": "skater", "label": "Tuch, A", "nhlTeamAbbrev": "BUF" },
+        { "kind": "skater", "label": "Rust, B", "nhlTeamAbbrev": "PIT" },
+        { "kind": "skater", "label": "Mantha, A", "nhlTeamAbbrev": "PIT" },
+        { "kind": "skater", "label": "Demidov, I", "nhlTeamAbbrev": "MTL" },
+        { "kind": "skater", "label": "Malkin, E", "nhlTeamAbbrev": "PIT" }
+      ]
+    },
+    {
+      "round": 5,
+      "title": "East Fwd 5",
+      "options": [
+        { "kind": "skater", "label": "Tkachuk, B", "nhlTeamAbbrev": "OTT" },
+        { "kind": "skater", "label": "Cozens, D", "nhlTeamAbbrev": "OTT" },
+        { "kind": "skater", "label": "McLeod, R", "nhlTeamAbbrev": "BUF" },
+        { "kind": "skater", "label": "Arvidsson, V", "nhlTeamAbbrev": "BOS" },
+        { "kind": "skater", "label": "Blake, J", "nhlTeamAbbrev": "CAR" },
+        { "kind": "skater", "label": "Cirelli, A", "nhlTeamAbbrev": "TBL" }
+      ]
+    },
+    {
+      "round": 6,
+      "title": "East Fwd 6",
+      "options": [
+        { "kind": "skater", "label": "Doan, J", "nhlTeamAbbrev": "BUF" },
+        { "kind": "skater", "label": "Dvorak, C", "nhlTeamAbbrev": "PHI" },
+        { "kind": "skater", "label": "Quinn, J", "nhlTeamAbbrev": "BUF" },
+        { "kind": "skater", "label": "Tippett, O", "nhlTeamAbbrev": "PHI" },
+        { "kind": "skater", "label": "Point, B", "nhlTeamAbbrev": "TBL" },
+        { "kind": "skater", "label": "Rakell, R", "nhlTeamAbbrev": "PIT" }
+      ]
+    },
+    {
+      "round": 7,
+      "title": "East Fwd 7",
+      "options": [
+        { "kind": "skater", "label": "Lindholm, E", "nhlTeamAbbrev": "BOS" },
+        { "kind": "skater", "label": "Michkov, M", "nhlTeamAbbrev": "PHI" },
+        { "kind": "skater", "label": "Hall, T", "nhlTeamAbbrev": "CAR" },
+        { "kind": "skater", "label": "Cates, N", "nhlTeamAbbrev": "PHI" },
+        { "kind": "skater", "label": "Giroux, C", "nhlTeamAbbrev": "OTT" },
+        { "kind": "skater", "label": "Zucker, J", "nhlTeamAbbrev": "BUF" }
+      ]
+    },
+    {
+      "round": 8,
+      "title": "East Def 1",
+      "options": [
+        { "kind": "skater", "label": "Hutson, L", "nhlTeamAbbrev": "MTL" },
+        { "kind": "skater", "label": "Dahlin, R", "nhlTeamAbbrev": "BUF" },
+        { "kind": "skater", "label": "Raddysh, D", "nhlTeamAbbrev": "TBL" },
+        { "kind": "skater", "label": "Karlsson, E", "nhlTeamAbbrev": "PIT" },
+        { "kind": "skater", "label": "McAvoy, C", "nhlTeamAbbrev": "BOS" },
+        { "kind": "skater", "label": "Sanderson, J", "nhlTeamAbbrev": "OTT" }
+      ]
+    },
+    {
+      "round": 9,
+      "title": "East Def 2",
+      "options": [
+        { "kind": "skater", "label": "Gostisbehere, S", "nhlTeamAbbrev": "CAR" },
+        { "kind": "skater", "label": "Dobson, N", "nhlTeamAbbrev": "MTL" },
+        { "kind": "skater", "label": "Samuelsson, M", "nhlTeamAbbrev": "BUF" },
+        { "kind": "skater", "label": "Byram, B", "nhlTeamAbbrev": "BUF" },
+        { "kind": "skater", "label": "Matheson, M", "nhlTeamAbbrev": "MTL" },
+        { "kind": "skater", "label": "Miller, K", "nhlTeamAbbrev": "CAR" }
+      ]
+    },
+    {
+      "round": 10,
+      "title": "East Def 3",
+      "options": [
+        { "kind": "skater", "label": "Sanheim, T", "nhlTeamAbbrev": "PHI" },
+        { "kind": "skater", "label": "Letang, K", "nhlTeamAbbrev": "PIT" },
+        { "kind": "skater", "label": "Chabot, T", "nhlTeamAbbrev": "OTT" },
+        { "kind": "skater", "label": "Shea, R", "nhlTeamAbbrev": "PIT" },
+        { "kind": "skater", "label": "Drysdale, J", "nhlTeamAbbrev": "PHI" },
+        { "kind": "skater", "label": "Nikishin, A", "nhlTeamAbbrev": "CAR" }
+      ]
+    },
+    {
+      "round": 11,
+      "title": "East Team 1",
+      "options": [
+        { "kind": "team", "label": "Carolina", "teamAbbrev": "CAR" },
+        { "kind": "team", "label": "Buffalo", "teamAbbrev": "BUF" },
+        { "kind": "team", "label": "Tampa", "teamAbbrev": "TBL" },
+        { "kind": "team", "label": "Montreal", "teamAbbrev": "MTL" }
+      ]
+    },
+    {
+      "round": 12,
+      "title": "East Team 2",
+      "options": [
+        { "kind": "team", "label": "Pittsburgh", "teamAbbrev": "PIT" },
+        { "kind": "team", "label": "Philadelphia", "teamAbbrev": "PHI" },
+        { "kind": "team", "label": "Ottawa", "teamAbbrev": "OTT" },
+        { "kind": "team", "label": "Boston", "teamAbbrev": "BOS" }
+      ]
+    },
+    {
+      "round": 13,
+      "title": "West Fwd 1",
+      "options": [
+        { "kind": "skater", "label": "McDavid, C", "nhlTeamAbbrev": "EDM" },
+        { "kind": "skater", "label": "MacKinnon, N", "nhlTeamAbbrev": "COL" },
+        { "kind": "skater", "label": "Draisaitl, L", "nhlTeamAbbrev": "EDM" },
+        { "kind": "skater", "label": "Necas, M", "nhlTeamAbbrev": "COL" },
+        { "kind": "skater", "label": "Stone, M", "nhlTeamAbbrev": "VGK" },
+        { "kind": "skater", "label": "Rantanen, M", "nhlTeamAbbrev": "DAL" }
+      ]
+    },
+    {
+      "round": 14,
+      "title": "West Fwd 2",
+      "options": [
+        { "kind": "skater", "label": "Boldy, M", "nhlTeamAbbrev": "MIN" },
+        { "kind": "skater", "label": "Eichel, J", "nhlTeamAbbrev": "VGK" },
+        { "kind": "skater", "label": "Keller, C", "nhlTeamAbbrev": "UTA" },
+        { "kind": "skater", "label": "Kaprizov, K", "nhlTeamAbbrev": "MIN" },
+        { "kind": "skater", "label": "Panarin, A", "nhlTeamAbbrev": "LAK" },
+        { "kind": "skater", "label": "Robertson, J", "nhlTeamAbbrev": "DAL" }
+      ]
+    },
+    {
+      "round": 15,
+      "title": "West Fwd 3",
+      "options": [
+        { "kind": "skater", "label": "Johnston, W", "nhlTeamAbbrev": "DAL" },
+        { "kind": "skater", "label": "Marner, M", "nhlTeamAbbrev": "VGK" },
+        { "kind": "skater", "label": "Carlsson, L", "nhlTeamAbbrev": "ANA" },
+        { "kind": "skater", "label": "Terry, T", "nhlTeamAbbrev": "ANA" },
+        { "kind": "skater", "label": "Zuccarello, M", "nhlTeamAbbrev": "MIN" },
+        { "kind": "skater", "label": "Landeskog, G", "nhlTeamAbbrev": "COL" }
+      ]
+    },
+    {
+      "round": 16,
+      "title": "West Fwd 4",
+      "options": [
+        { "kind": "skater", "label": "Guenther, D", "nhlTeamAbbrev": "UTA" },
+        { "kind": "skater", "label": "Kempe, A", "nhlTeamAbbrev": "LAK" },
+        { "kind": "skater", "label": "Gauthier, C", "nhlTeamAbbrev": "ANA" },
+        { "kind": "skater", "label": "Schmaltz, N", "nhlTeamAbbrev": "UTA" },
+        { "kind": "skater", "label": "Hyman, Z", "nhlTeamAbbrev": "EDM" },
+        { "kind": "skater", "label": "Hintz, R", "nhlTeamAbbrev": "DAL" }
+      ]
+    },
+    {
+      "round": 17,
+      "title": "West Fwd 5",
+      "options": [
+        { "kind": "skater", "label": "Nelson, B", "nhlTeamAbbrev": "COL" },
+        { "kind": "skater", "label": "Duchene, M", "nhlTeamAbbrev": "DAL" },
+        { "kind": "skater", "label": "Dorofeyev, P", "nhlTeamAbbrev": "VGK" },
+        { "kind": "skater", "label": "Cooley, L", "nhlTeamAbbrev": "UTA" },
+        { "kind": "skater", "label": "Nugent-Hopkins, R", "nhlTeamAbbrev": "EDM" },
+        { "kind": "skater", "label": "Eriksson Ek, J", "nhlTeamAbbrev": "MIN" }
+      ]
+    },
+    {
+      "round": 18,
+      "title": "West Fwd 6",
+      "options": [
+        { "kind": "skater", "label": "Sennecke, B", "nhlTeamAbbrev": "ANA" },
+        { "kind": "skater", "label": "Barbashev, I", "nhlTeamAbbrev": "VGK" },
+        { "kind": "skater", "label": "Fiala, K", "nhlTeamAbbrev": "LAK" },
+        { "kind": "skater", "label": "Hertl, T", "nhlTeamAbbrev": "VGK" },
+        { "kind": "skater", "label": "Lehkonen, A", "nhlTeamAbbrev": "COL" },
+        { "kind": "skater", "label": "Savoie, M", "nhlTeamAbbrev": "EDM" }
+      ]
+    },
+    {
+      "round": 19,
+      "title": "West Fwd 7",
+      "options": [
+        { "kind": "skater", "label": "Kreider, C", "nhlTeamAbbrev": "ANA" },
+        { "kind": "skater", "label": "Nichushkin, V", "nhlTeamAbbrev": "COL" },
+        { "kind": "skater", "label": "Granlund, M", "nhlTeamAbbrev": "ANA" },
+        { "kind": "skater", "label": "Johansson, M", "nhlTeamAbbrev": "MIN" },
+        { "kind": "skater", "label": "Kadri, N", "nhlTeamAbbrev": "COL" },
+        { "kind": "skater", "label": "Seguin, T", "nhlTeamAbbrev": "DAL" }
+      ]
+    },
+    {
+      "round": 20,
+      "title": "West Def 1",
+      "options": [
+        { "kind": "skater", "label": "Bouchard, E", "nhlTeamAbbrev": "EDM" },
+        { "kind": "skater", "label": "Makar, C", "nhlTeamAbbrev": "COL" },
+        { "kind": "skater", "label": "Hughes, Q", "nhlTeamAbbrev": "MIN" },
+        { "kind": "skater", "label": "Heiskanen, M", "nhlTeamAbbrev": "DAL" },
+        { "kind": "skater", "label": "Carlson, J", "nhlTeamAbbrev": "ANA" },
+        { "kind": "skater", "label": "Sergachev, M", "nhlTeamAbbrev": "UTA" }
+      ]
+    },
+    {
+      "round": 21,
+      "title": "West Def 2",
+      "options": [
+        { "kind": "skater", "label": "LaCombe, J", "nhlTeamAbbrev": "ANA" },
+        { "kind": "skater", "label": "Clarke, B", "nhlTeamAbbrev": "LAK" },
+        { "kind": "skater", "label": "Faber, B", "nhlTeamAbbrev": "MIN" },
+        { "kind": "skater", "label": "Andersson, R", "nhlTeamAbbrev": "VGK" },
+        { "kind": "skater", "label": "Ekholm, M", "nhlTeamAbbrev": "EDM" },
+        { "kind": "skater", "label": "Malinski, S", "nhlTeamAbbrev": "COL" }
+      ]
+    },
+    {
+      "round": 22,
+      "title": "West Def 3",
+      "options": [
+        { "kind": "skater", "label": "Theodore, S", "nhlTeamAbbrev": "VGK" },
+        { "kind": "skater", "label": "Harley, T", "nhlTeamAbbrev": "DAL" },
+        { "kind": "skater", "label": "Marino, J", "nhlTeamAbbrev": "UTA" },
+        { "kind": "skater", "label": "Trouba, J", "nhlTeamAbbrev": "ANA" },
+        { "kind": "skater", "label": "Burns, B", "nhlTeamAbbrev": "COL" },
+        { "kind": "skater", "label": "Manson, J", "nhlTeamAbbrev": "COL" }
+      ]
+    },
+    {
+      "round": 23,
+      "title": "West Team 1",
+      "options": [
+        { "kind": "team", "label": "Colorado", "teamAbbrev": "COL" },
+        { "kind": "team", "label": "Dallas", "teamAbbrev": "DAL" },
+        { "kind": "team", "label": "Minnesota", "teamAbbrev": "MIN" },
+        { "kind": "team", "label": "Anaheim", "teamAbbrev": "ANA" }
+      ]
+    },
+    {
+      "round": 24,
+      "title": "West Team 2",
+      "options": [
+        { "kind": "team", "label": "Edmonton", "teamAbbrev": "EDM" },
+        { "kind": "team", "label": "Las Vegas", "teamAbbrev": "VGK" },
+        { "kind": "team", "label": "Utah", "teamAbbrev": "UTA" },
+        { "kind": "team", "label": "Los Angeles", "teamAbbrev": "LAK" }
+      ]
+    }
+  ]
+}
