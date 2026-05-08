@@ -1,6 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
+import { format, parseISO } from "date-fns";
 import { useMemo, useState } from "react";
 import { CenteredLoading } from "@/components/centered-loading";
 import { NhleTeamLogoImage } from "@/components/nhle-team-logo";
@@ -62,6 +63,15 @@ async function fetchJson<T>(url: string): Promise<T> {
 
 function formatOneDecimal(n: number): string {
   return (Math.round(n * 10) / 10).toFixed(1);
+}
+
+/** Matches the short-date treatment used by `ScopeSubHeader` in Pool in review. */
+function formatShortDate(iso: string): string {
+  try {
+    return format(parseISO(iso), "MMM d");
+  } catch {
+    return iso;
+  }
 }
 
 function formatPercent(n: number): string {
@@ -272,12 +282,25 @@ export function PoolRosterOutlook({
       aria-labelledby="pool-roster-outlook-heading"
     >
       <header className="flex flex-col gap-1">
-        <h2
-          id="pool-roster-outlook-heading"
-          className="font-pool-display text-base font-semibold tracking-tight text-zinc-900 dark:text-zinc-50"
-        >
-          Roster outlook
-        </h2>
+        <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1">
+          <h2
+            id="pool-roster-outlook-heading"
+            className="font-pool-display text-base font-semibold tracking-tight text-zinc-900 dark:text-zinc-50"
+          >
+            Roster outlook
+          </h2>
+          {projectionQuery.data.asOfDate ? (
+            <p
+              className="text-[0.7rem] tabular-nums text-zinc-500 dark:text-zinc-400"
+              title="Pool data is materialized after each nightly scoring ingest"
+            >
+              Updated{" "}
+              <time dateTime={projectionQuery.data.asOfDate}>
+                {formatShortDate(projectionQuery.data.asOfDate)}
+              </time>
+            </p>
+          ) : null}
+        </div>
         <p className="text-xs leading-snug text-zinc-600 dark:text-zinc-400">
           {subtitle}
         </p>
