@@ -128,7 +128,7 @@ type TileProps = {
 
 function Tile({ label, hero, heroUnit, children }: TileProps) {
   return (
-    <div className="flex h-full min-h-[6.25rem] flex-col rounded-2xl bg-white px-4 py-3 shadow-[0_4px_32px_-16px_rgba(0,0,0,0.12)] ring-1 ring-zinc-900/[0.06] dark:bg-zinc-950 dark:shadow-[0_8px_40px_-20px_rgba(0,0,0,0.65)] dark:ring-white/[0.08]">
+    <div className="flex min-h-[6.25rem] w-full flex-col self-stretch rounded-2xl bg-white px-4 py-3 shadow-[0_4px_32px_-16px_rgba(0,0,0,0.12)] ring-1 ring-zinc-900/[0.06] dark:bg-zinc-950 dark:shadow-[0_8px_40px_-20px_rgba(0,0,0,0.65)] dark:ring-white/[0.08]">
       <div className="grid min-h-0 min-w-0 flex-1 grid-cols-[minmax(0,1fr)_auto] gap-x-3">
         <div className="flex min-h-0 min-w-0 flex-col justify-start gap-2">
           <p className="text-[0.65rem] font-bold uppercase leading-none tracking-[0.16em] text-zinc-500 dark:text-zinc-400">
@@ -157,7 +157,7 @@ function Tile({ label, hero, heroUnit, children }: TileProps) {
 
 function TileEmpty({ label, message }: { label: string; message: string }) {
   return (
-    <div className="flex h-full min-h-[6.25rem] flex-col gap-2 rounded-2xl bg-white px-4 py-3 shadow-[0_4px_32px_-16px_rgba(0,0,0,0.12)] ring-1 ring-zinc-900/[0.06] dark:bg-zinc-950 dark:shadow-[0_8px_40px_-20px_rgba(0,0,0,0.65)] dark:ring-white/[0.08]">
+    <div className="flex min-h-[6.25rem] w-full flex-col gap-2 self-stretch rounded-2xl bg-white px-4 py-3 shadow-[0_4px_32px_-16px_rgba(0,0,0,0.12)] ring-1 ring-zinc-900/[0.06] dark:bg-zinc-950 dark:shadow-[0_8px_40px_-20px_rgba(0,0,0,0.65)] dark:ring-white/[0.08]">
       <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-zinc-500 dark:text-zinc-400">
         {label}
       </p>

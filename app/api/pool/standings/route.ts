@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NhlTeamPlayoffStatus } from "@/lib/nhl/schemas";
-import { fetchPlayoffTeamStatusByDate } from "@/lib/nhl/playoff-status";
+import { getCachedPlayoffTeamStatusByDate } from "@/lib/nhl/cached-playoff-team-status";
 import { loadPoolRosters } from "@/lib/pool/load-rosters";
 import { computePoolStandingsDetailedForDate } from "@/lib/pool/compute-standings-for-date";
 import { getCachedLeaderboardResponse } from "@/lib/pool/cached-pool-queries";
@@ -11,7 +11,10 @@ import {
 } from "@/lib/pool/remaining-picks-by-team";
 import { resolvePoolDateQueryParam } from "@/lib/pool/resolve-pool-date-query";
 import { publicMessageForStandingsFailure } from "@/lib/pool/standings-api-error";
-import { SCOREBOARD_CACHE_CONTROL } from "@/lib/nhl/constants";
+import {
+  POOL_STANDINGS_CACHE_CONTROL,
+  SCOREBOARD_CACHE_CONTROL,
+} from "@/lib/nhl/constants";
 
 function withRemainingPicks<T extends { teamId: string }>(
   rows: T[],
@@ -54,7 +57,7 @@ export async function GET(request: Request) {
     const rosters = loadPoolRosters();
     let statusByAbbrev = new Map<string, NhlTeamPlayoffStatus>();
     try {
-      statusByAbbrev = await fetchPlayoffTeamStatusByDate(date);
+      statusByAbbrev = await getCachedPlayoffTeamStatusByDate(date);
     } catch {
       /* Bracket unavailable — picks without a match stay “active”. */
     }
@@ -91,7 +94,7 @@ export async function GET(request: Request) {
         leaderboardMode: payload.leaderboardMode,
         compareThroughPrevCalendarDay: payload.compareThroughPrevCalendarDay,
       },
-      { headers: { "Cache-Control": SCOREBOARD_CACHE_CONTROL } },
+      { headers: { "Cache-Control": POOL_STANDINGS_CACHE_CONTROL } },
     );
   } catch (e) {
     console.error("[pool/standings]", e);

@@ -61,3 +61,13 @@ export function calendarTodayUtc(): string {
 export function previousCalendarDay(date: string): string {
   return format(subDays(parseISO(date), 1), "yyyy-MM-dd");
 }
+
+/**
+ * Minimum `asOfDate` for a nightly ingest snapshot to be considered current when
+ * serving pool "today" (`date === poolCalendarToday()`). If the DB's latest row is
+ * older, callers should fall through to live builders so a missed cron does not
+ * freeze the UI on an earlier playoff night.
+ */
+export function poolCalendarExpectedLatestIngestAsOf(poolToday: string): string {
+  return previousCalendarDay(poolToday);
+}

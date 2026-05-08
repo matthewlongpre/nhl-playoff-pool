@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { fetchPlayoffTeamStatusByDate } from "@/lib/nhl/playoff-status";
+import { getCachedPlayoffTeamStatusByDate } from "@/lib/nhl/cached-playoff-team-status";
 import type { NhlTeamPlayoffStatus } from "@/lib/nhl/schemas";
 import { loadPoolRosters } from "@/lib/pool/load-rosters";
 import {
@@ -42,7 +42,7 @@ export async function GET(request: Request) {
     const rosters = loadPoolRosters();
     let statusByAbbrev = new Map<string, NhlTeamPlayoffStatus>();
     try {
-      statusByAbbrev = await fetchPlayoffTeamStatusByDate(date);
+      statusByAbbrev = await getCachedPlayoffTeamStatusByDate(date);
     } catch {
       /* Bracket missing — treat all teams as active for crest styling. */
     }

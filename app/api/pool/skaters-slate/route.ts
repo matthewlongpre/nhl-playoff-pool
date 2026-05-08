@@ -4,7 +4,7 @@
  */
 import { NextResponse } from "next/server";
 import { fetchNhlPlayerBadges } from "@/lib/nhl/player-landing";
-import { loadPlayoffDayNhlBundle } from "@/lib/pool/playoff-day-bundle";
+import { loadPlayoffDayNhlBundleCached } from "@/lib/pool/cached-playoff-day-bundle";
 import { SCOREBOARD_CACHE_CONTROL } from "@/lib/nhl/constants";
 import { resolvePoolSkaterDisplayNameMap } from "@/lib/pool/pool-skater-display-names";
 import {
@@ -33,7 +33,7 @@ export async function GET(request: Request) {
       }
     }
 
-    const bundle = await loadPlayoffDayNhlBundle(date);
+    const bundle = await loadPlayoffDayNhlBundleCached(date);
     const nhlNames = await resolvePoolSkaterDisplayNameMap(rosters.teams);
 
     const poolTeamsForPayload =

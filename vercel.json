@@ -2,7 +2,11 @@
   "crons": [
     {
       "path": "/api/pool/internal/cron-ingest-yesterday",
-      "schedule": "0 14 * * *"
+      "schedule": "0 9 * * *"
+    },
+    {
+      "path": "/api/pool/internal/cron-materialize-yesterday",
+      "schedule": "10 9 * * *"
     }
   ]
 }

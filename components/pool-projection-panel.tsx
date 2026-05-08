@@ -47,7 +47,7 @@ type ProjectionPayload = {
 };
 
 async function fetchJson<T>(url: string): Promise<T> {
-  const res = await fetch(url);
+  const res = await fetch(url, { cache: "no-store" });
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
     throw new Error(typeof err?.error === "string" ? err.error : "Request failed");
@@ -77,6 +77,7 @@ export function PoolProjectionPanel({
       fetchJson<ProjectionPayload>(
         `/api/pool/projection?date=${encodeURIComponent(asOfDate)}`,
       ),
+    staleTime: 0,
     refetchInterval: refetchIntervalMs ?? false,
   });
 

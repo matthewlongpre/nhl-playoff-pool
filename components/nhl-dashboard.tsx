@@ -107,7 +107,9 @@ export function NhlDashboard() {
             {visibleGames.length} game{visibleGames.length === 1 ? "" : "s"} on this slate
           </span>
           <span className="text-xs text-zinc-500">
-            ~{Math.round(refreshMs / 1000)}s adaptive refresh
+            {typeof refreshMs === "number"
+              ? `~${Math.round(refreshMs / 1000)}s adaptive refresh`
+              : "Auto-refresh off while slate is idle"}
           </span>
           {isFetching && !isLoading ? (
             <span className="text-xs text-zinc-500">Refreshing…</span>

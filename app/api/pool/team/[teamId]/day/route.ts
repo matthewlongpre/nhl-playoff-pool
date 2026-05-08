@@ -10,7 +10,7 @@ import {
   groupDaySourcesByPoolTeam,
   type PoolTeamCrewRow,
 } from "@/lib/pool/day-sources-by-pool";
-import { loadPlayoffDayNhlBundle } from "@/lib/pool/playoff-day-bundle";
+import { loadPlayoffDayNhlBundleCached } from "@/lib/pool/cached-playoff-day-bundle";
 import { loadPoolRosters } from "@/lib/pool/load-rosters";
 import {
   applyBadgesToSkatersSlateTeams,
@@ -39,7 +39,7 @@ export async function GET(
   }
 
   try {
-    const bundle = await loadPlayoffDayNhlBundle(date);
+    const bundle = await loadPlayoffDayNhlBundleCached(date);
     const poolTeam = rosters.teams.find((t) => t.id === teamId)!;
 
     const skaterStats = bundle.skaterStats;

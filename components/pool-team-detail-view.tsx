@@ -15,7 +15,7 @@ import {
   type PoolTeamRosterOutlookSectionModel,
 } from "@/components/pool-team-roster-outlook-section";
 import { ScoringDayTabs } from "@/components/scoring-day-tabs";
-import { getPoolNeonBackedRefreshIntervalMs } from "@/lib/nhl/pool-neon-refresh-interval";
+import { getNhlScoreboardRefreshIntervalMsCapped } from "@/lib/nhl/adaptive-interval";
 import type { NhlTeamPlayoffStatus } from "@/lib/nhl/schemas";
 import type { PoolTeamProjection } from "@/lib/pool/projection";
 import type { TeamDayApiResponse } from "@/lib/pool/team-day-api";
@@ -77,7 +77,7 @@ function pickKey(round: number, label: string): string {
 }
 
 async function fetchJson<T>(url: string): Promise<T> {
-  const res = await fetch(url);
+  const res = await fetch(url, { cache: "no-store" });
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
     throw new Error(typeof err?.error === "string" ? err.error : "Request failed");
@@ -131,6 +131,8 @@ export function PoolTeamDetailView({ teamId }: { teamId: string }) {
         `/api/pool/projection?date=${encodeURIComponent(q.data!.asOfDate)}`,
       ),
     enabled: !!q.data?.asOfDate,
+    staleTime: 0,
+    refetchInterval: false,
   });
 
   const teamDayQuery = useQuery({
@@ -143,9 +145,9 @@ export function PoolTeamDetailView({ teamId }: { teamId: string }) {
       if (scoringDayTab !== "today") return false;
       const d = query.state.data as TeamDayApiResponse | undefined;
       if (!d?.playoffGamesForPoll?.length) {
-        return getPoolNeonBackedRefreshIntervalMs([]);
+        return getNhlScoreboardRefreshIntervalMsCapped([]);
       }
-      return getPoolNeonBackedRefreshIntervalMs(d.playoffGamesForPoll);
+      return getNhlScoreboardRefreshIntervalMsCapped(d.playoffGamesForPoll);
     },
   });
 

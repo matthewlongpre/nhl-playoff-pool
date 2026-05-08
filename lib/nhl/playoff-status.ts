@@ -1,8 +1,8 @@
+import { getCachedPlayoffBracket } from "@/lib/nhl/cached-playoff-bracket";
 import type {
   NhlTeamPlayoffStatus,
   PlayoffBracketResponse,
 } from "@/lib/nhl/schemas";
-import { fetchNhlPlayoffBracket } from "@/lib/nhl/upstream";
 
 const SERIES_WIN_THRESHOLD = 4;
 
@@ -74,7 +74,7 @@ export async function fetchPlayoffTeamStatusByDate(
   date: string,
 ): Promise<Map<string, NhlTeamPlayoffStatus>> {
   const season = playoffSeasonFromDate(date);
-  const bracket = await fetchNhlPlayoffBracket(season);
+  const bracket = await getCachedPlayoffBracket(season);
   const statusByAbbrev = buildTeamStatusFromPlayoffBracket(bracket);
   const forcedEliminated = parseForcedEliminatedTeamAbbrevs(
     process.env.POOL_TEST_ELIMINATED_TEAMS ??

@@ -1,5 +1,8 @@
 import { describe, expect, it, vi, beforeEach, afterEach } from "vitest";
-import { poolCalendarToday } from "@/lib/pool/pool-season";
+import {
+  poolCalendarExpectedLatestIngestAsOf,
+  poolCalendarToday,
+} from "@/lib/pool/pool-season";
 
 describe("poolCalendarToday", () => {
   beforeEach(() => {
@@ -19,5 +22,11 @@ describe("poolCalendarToday", () => {
   it("rolls to next pool day after Pacific midnight", () => {
     vi.setSystemTime(new Date("2026-04-20T07:00:00.000Z"));
     expect(poolCalendarToday()).toBe("2026-04-20");
+  });
+});
+
+describe("poolCalendarExpectedLatestIngestAsOf", () => {
+  it("is pool calendar yesterday", () => {
+    expect(poolCalendarExpectedLatestIngestAsOf("2026-05-05")).toBe("2026-05-04");
   });
 });

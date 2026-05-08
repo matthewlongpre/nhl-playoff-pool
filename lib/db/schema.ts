@@ -1,7 +1,9 @@
 import {
   date,
   integer,
+  jsonb,
   pgTable,
+  primaryKey,
   serial,
   text,
   timestamp,
@@ -62,3 +64,46 @@ export const poolSkaterDailyPoints = pgTable(
 );
 
 export type PoolSkaterDailyPointsRow = typeof poolSkaterDailyPoints.$inferSelect;
+
+/** Precomputed JSON from nightly ingest — review + projection (cheap reads for clients). */
+export const poolIngestSnapshots = pgTable(
+  "pool_ingest_snapshots",
+  {
+    id: serial("id").primaryKey(),
+    asOfDate: date("as_of_date", { mode: "string" }).notNull(),
+    kind: text("kind").notNull(),
+    payload: jsonb("payload").notNull().$type<Record<string, unknown>>(),
+    updatedAt: timestamp("updated_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (t) => ({
+    dateKindUq: unique("pool_ingest_snapshots_date_kind_uidx").on(
+      t.asOfDate,
+      t.kind,
+    ),
+  }),
+);
+
+export type PoolIngestSnapshotRow = typeof poolIngestSnapshots.$inferSelect;
+
+/**
+ * Cached NHL `/scoreboard/{date}` JSON for round-window derivation (`composePlayoffRoundWindows`).
+ * Keyed by playoff season year + calendar date so overlapping seasons cannot collide.
+ */
+export const nhlScoreboardDayCache = pgTable(
+  "nhl_scoreboard_day_cache",
+  {
+    playoffSeason: integer("playoff_season").notNull(),
+    calendarDate: date("calendar_date", { mode: "string" }).notNull(),
+    payload: jsonb("payload").notNull().$type<Record<string, unknown>>(),
+    fetchedAt: timestamp("fetched_at", { withTimezone: true })
+      .notNull()
+      .defaultNow(),
+  },
+  (t) => ({
+    pk: primaryKey({ columns: [t.playoffSeason, t.calendarDate] }),
+  }),
+);
+
+export type NhlScoreboardDayCacheRow = typeof nhlScoreboardDayCache.$inferSelect;

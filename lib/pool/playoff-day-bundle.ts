@@ -1,5 +1,5 @@
 import { fetchPlayoffScoreboardWithCalendarFallback } from "@/lib/nhl/playoff-scoreboard-fallback";
-import { fetchPlayoffTeamStatusByDate } from "@/lib/nhl/playoff-status";
+import { getCachedPlayoffTeamStatusByDate } from "@/lib/nhl/cached-playoff-team-status";
 import { fetchNhlBoxscore } from "@/lib/nhl/upstream";
 import type {
   BoxscoreResponse,
@@ -51,15 +51,35 @@ export type PlayoffDayNhlBundle = {
   teamStatusByAbbrev: Map<string, NhlTeamPlayoffStatus>;
 };
 
-/**
- * One scoreboard + boxscore pass for a pool calendar day (playoff games only).
- */
-export async function loadPlayoffDayNhlBundle(
+/** Scoreboard slice only — no boxscores (for cache keys / deduped fan-out). */
+export type PlayoffDayScoreboardPhase = {
+  requestedCalendarDate: string;
+  requestedDate: string;
+  effectiveDate: string;
+  fellBack: boolean;
+  playoffGames: ScoreboardGame[];
+};
+
+export async function fetchPlayoffDayScoreboardPhase(
   requestedCalendarDate: string,
-): Promise<PlayoffDayNhlBundle> {
+): Promise<PlayoffDayScoreboardPhase> {
   const { scoreboard, effectiveDate, fellBack, requestedDate } =
     await fetchPlayoffScoreboardWithCalendarFallback(requestedCalendarDate);
   const playoffGames = playoffGamesForDate(scoreboard.gamesByDate, effectiveDate);
+  return {
+    requestedCalendarDate,
+    requestedDate,
+    effectiveDate,
+    fellBack,
+    playoffGames,
+  };
+}
+
+export async function finalizePlayoffDayNhlBundle(
+  phase: PlayoffDayScoreboardPhase,
+): Promise<PlayoffDayNhlBundle> {
+  const { playoffGames, requestedCalendarDate, requestedDate, effectiveDate, fellBack } =
+    phase;
   const gameIds = [...new Set(playoffGames.map((g) => g.id))];
 
   const boxResults = await Promise.allSettled(
@@ -80,7 +100,7 @@ export async function loadPlayoffDayNhlBundle(
   const winsByAbbrev = countWinsByTeamAbbrev(playoffGames);
   const teamLogos = teamLogoUrlByAbbrev(playoffGames);
   const teamStatusByAbbrev =
-    await fetchPlayoffTeamStatusByDate(requestedCalendarDate);
+    await getCachedPlayoffTeamStatusByDate(requestedCalendarDate);
 
   return {
     requestedCalendarDate,
@@ -96,4 +116,15 @@ export async function loadPlayoffDayNhlBundle(
     teamLogos,
     teamStatusByAbbrev,
   };
+}
+
+/**
+ * One scoreboard + boxscore pass for a pool calendar day (playoff games only).
+ * Prefer `loadPlayoffDayNhlBundleCached` from server routes to dedupe concurrent work.
+ */
+export async function loadPlayoffDayNhlBundle(
+  requestedCalendarDate: string,
+): Promise<PlayoffDayNhlBundle> {
+  const phase = await fetchPlayoffDayScoreboardPhase(requestedCalendarDate);
+  return finalizePlayoffDayNhlBundle(phase);
 }

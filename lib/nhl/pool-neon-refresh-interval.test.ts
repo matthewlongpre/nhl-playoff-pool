@@ -7,10 +7,8 @@ import {
 import type { ScoreboardGame } from "@/lib/nhl/schemas";
 
 describe("getPoolNeonBackedRefreshIntervalMs", () => {
-  it("returns IDLE when there are no games", () => {
-    expect(getPoolNeonBackedRefreshIntervalMs([])).toBe(
-      POOL_NEON_REFRESH_MS.IDLE,
-    );
+  it("returns false when there are no games", () => {
+    expect(getPoolNeonBackedRefreshIntervalMs([])).toBe(false);
   });
 
   it("returns LIVE interval when any game is LIVE or CRIT", () => {
@@ -37,19 +35,18 @@ describe("getPoolNeonBackedRefreshIntervalMs", () => {
     );
   });
 
-  it("returns IDLE when all games are final/off", () => {
+  it("returns false when all games are final/off", () => {
     expect(
       getPoolNeonBackedRefreshIntervalMs([
         { gameState: "OFF" },
         { gameState: "OFF" },
       ]),
-    ).toBe(POOL_NEON_REFRESH_MS.IDLE);
+    ).toBe(false);
   });
 
-  it("uses 15 minutes for live, pregame, and idle (Neon-backed pool APIs)", () => {
+  it("uses 15 minutes for live and pregame (Neon-backed pool APIs)", () => {
     expect(POOL_NEON_REFRESH_MS.LIVE).toBe(900_000);
     expect(POOL_NEON_REFRESH_MS.PREGAME).toBe(900_000);
-    expect(POOL_NEON_REFRESH_MS.IDLE).toBe(900_000);
   });
 });
 

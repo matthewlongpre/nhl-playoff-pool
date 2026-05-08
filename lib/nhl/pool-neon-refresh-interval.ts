@@ -1,24 +1,23 @@
 import type { ScoreboardGame } from "@/lib/nhl/schemas";
 
-/** Neon-backed `/api/pool/*` poll cadence — 15m for hobby/small pools (NHL scoreboard stays faster). */
+/** Neon-backed `/api/pool/*` poll cadence when slate is live or pregame (15m). Idle uses `false`. */
 export const POOL_NEON_REFRESH_MS = {
   LIVE: 900_000,
   PREGAME: 900_000,
-  IDLE: 900_000,
 } as const;
 
 const LIVE_STATES = new Set(["LIVE", "CRIT"]);
 const PREGAME_STATES = new Set(["FUT", "PRE"]);
 
 /**
- * Adaptive interval for Postgres-backed pool APIs: live games still refresh
- * reasonably often; idle slates avoid the former 60s cap that hammered Neon.
+ * Interval for Postgres-backed pool APIs (`false` = no background refetch).
+ * Live/pregame slates still poll slowly; idle slates do not poll (avoids overnight traffic).
  */
 export function getPoolNeonBackedRefreshIntervalMs(
   games: ReadonlyArray<Pick<ScoreboardGame, "gameState">>,
-): number {
+): number | false {
   if (games.length === 0) {
-    return POOL_NEON_REFRESH_MS.IDLE;
+    return false;
   }
   for (const g of games) {
     if (LIVE_STATES.has(g.gameState)) {
@@ -30,7 +29,7 @@ export function getPoolNeonBackedRefreshIntervalMs(
       return POOL_NEON_REFRESH_MS.PREGAME;
     }
   }
-  return POOL_NEON_REFRESH_MS.IDLE;
+  return false;
 }
 
 /**

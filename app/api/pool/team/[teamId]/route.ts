@@ -1,4 +1,4 @@
-import { and, gte, lte, sql } from "drizzle-orm";
+import { and, gte, inArray, lte, sql } from "drizzle-orm";
 import { NextResponse } from "next/server";
 import { getDb } from "@/lib/db";
 import { poolSkaterDailyPoints } from "@/lib/db/schema";
@@ -7,8 +7,9 @@ import { getCachedLeaderboardResponse } from "@/lib/pool/cached-pool-queries";
 import { loadPoolRosters } from "@/lib/pool/load-rosters";
 import { computeCumulativeTeamBreakdownThroughDate } from "@/lib/pool/team-cumulative-breakdown";
 import type { TeamScoreBreakdown } from "@/lib/pool/scoring";
+import { getCachedPlayoffBracket } from "@/lib/nhl/cached-playoff-bracket";
+import { getCachedPlayoffTeamStatusByDate } from "@/lib/nhl/cached-playoff-team-status";
 import {
-  fetchPlayoffTeamStatusByDate,
   playoffSeasonFromDate,
   teamStatusMapToRecord,
 } from "@/lib/nhl/playoff-status";
@@ -17,7 +18,6 @@ import type {
   NhlTeamPlayoffStatus,
   PlayoffBracketResponse,
 } from "@/lib/nhl/schemas";
-import { fetchNhlPlayoffBracket } from "@/lib/nhl/upstream";
 import {
   blendedPpg,
   buildTeamProjectionMaps,
@@ -62,7 +62,7 @@ async function aggregatePlayoffStatsForTeam(
         and(
           gte(poolSkaterDailyPoints.date, startDate),
           lte(poolSkaterDailyPoints.date, asOfDate),
-          sql`${poolSkaterDailyPoints.nhlPlayerId} = ANY(${ids})`,
+          inArray(poolSkaterDailyPoints.nhlPlayerId, ids),
         ),
       )
       .groupBy(poolSkaterDailyPoints.nhlPlayerId);
@@ -117,7 +117,7 @@ export async function GET(
       breakdown =
         standings.find((s) => s.teamId === teamId)?.breakdown ?? null;
     }
-    const teamStatusByAbbrev = await fetchPlayoffTeamStatusByDate(date);
+    const teamStatusByAbbrev = await getCachedPlayoffTeamStatusByDate(date);
 
     /**
      * Per-pick projection for this team. Uses the same model as `/api/pool/projection`
@@ -139,17 +139,11 @@ export async function GET(
           .filter((id) => id > 0);
 
         let bracket: PlayoffBracketResponse | null = null;
-        let statusMap: Map<string, NhlTeamPlayoffStatus> = new Map();
+        const statusMap = teamStatusByAbbrev;
         try {
-          const [b, s] = await Promise.all([
-            fetchNhlPlayoffBracket(playoffSeasonFromDate(date)),
-            fetchPlayoffTeamStatusByDate(date),
-          ]);
-          bracket = b;
-          statusMap = s;
+          bracket = await getCachedPlayoffBracket(playoffSeasonFromDate(date));
         } catch {
           bracket = null;
-          statusMap = new Map();
         }
 
         if (bracket) {

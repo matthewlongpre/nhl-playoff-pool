@@ -2,7 +2,7 @@ import type { ScoreboardGame } from "@/lib/nhl/schemas";
 
 export const NHL_REFRESH_MS = {
   /** Active play */
-  LIVE: 12_000,
+  LIVE: 120_000,
   /** Scheduled / pregame */
   PREGAME: 60_000,
   /** Final, off days, or no games */
@@ -35,16 +35,15 @@ export function getNhlScoreboardRefreshIntervalMs(
 }
 
 /**
- * Caps the idle (10m) interval so the UI picks up DB/ingest changes within ~1 minute
- * without a full page refresh. Live/pregame intervals stay unchanged (≤ cap).
+ * Returns `false` when the slate is idle (no games or all final) so React Query does
+ * not refetch in the background overnight. Live and pregame return their ms interval.
  */
-export const NHL_UI_IDLE_POLL_CAP_MS = 60_000;
-
 export function getNhlScoreboardRefreshIntervalMsCapped(
   games: ReadonlyArray<Pick<ScoreboardGame, "gameState">>,
-): number {
-  return Math.min(
-    getNhlScoreboardRefreshIntervalMs(games),
-    NHL_UI_IDLE_POLL_CAP_MS,
-  );
+): number | false {
+  const raw = getNhlScoreboardRefreshIntervalMs(games);
+  if (raw >= NHL_REFRESH_MS.IDLE) {
+    return false;
+  }
+  return raw;
 }

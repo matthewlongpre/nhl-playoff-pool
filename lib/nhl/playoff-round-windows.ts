@@ -1,12 +1,17 @@
+import type { Db } from "@/lib/db";
 import { playoffSeasonFromDate } from "@/lib/nhl/playoff-status";
+import {
+  computeDatesNeedingFetch,
+  getScoreboardCacheTailDays,
+  loadCachedScoreboards,
+  upsertScoreboardDayCache,
+} from "@/lib/nhl/scoreboard-day-cache";
 import type {
   PlayoffBracketResponse,
   ScoreboardResponse,
 } from "@/lib/nhl/schemas";
-import {
-  fetchNhlPlayoffBracket,
-  fetchNhlScoreboard,
-} from "@/lib/nhl/upstream";
+import { getCachedPlayoffBracket } from "@/lib/nhl/cached-playoff-bracket";
+import { fetchNhlScoreboard } from "@/lib/nhl/upstream";
 import { isPlayoffGame } from "@/lib/pool/scoring";
 
 /** A series is decided once one side has 4 wins. */
@@ -150,31 +155,106 @@ export function composePlayoffRoundWindows(args: {
   return { dateToDominantRound, roundsByNumber };
 }
 
+/** Small batches avoid tripping NHL 429 when the playoff window spans many days. */
+const SCOREBOARD_FETCH_CONCURRENCY = 4;
+const PAUSE_BETWEEN_SCOREBOARD_BATCHES_MS = 120;
+
 /**
- * Fetch scoreboards across the playoff window (one per date, in parallel) plus the
- * playoff bracket, then compose round windows. Per-date scoreboard fetches are cheap
- * thanks to upstream Next.js revalidation caching in `fetchNhlScoreboard`.
+ * Fetch NHL scoreboards for `dates` only (subset of the playoff window).
+ * Failed days are omitted; mirrors legacy behavior when a single date fails upstream.
+ */
+export async function fetchScoreboardsInBatches(
+  dates: ReadonlyArray<string>,
+): Promise<Map<string, ScoreboardResponse>> {
+  const out = new Map<string, ScoreboardResponse>();
+  if (dates.length === 0) return out;
+
+  const sleep = (ms: number) => new Promise<void>((r) => setTimeout(r, ms));
+  for (let i = 0; i < dates.length; i += SCOREBOARD_FETCH_CONCURRENCY) {
+    const slice = dates.slice(i, i + SCOREBOARD_FETCH_CONCURRENCY);
+    const settled = await Promise.allSettled(
+      slice.map((d) => fetchNhlScoreboard(d)),
+    );
+    settled.forEach((r, j) => {
+      if (r.status === "fulfilled") {
+        out.set(slice[j]!, r.value);
+      }
+    });
+    if (i + SCOREBOARD_FETCH_CONCURRENCY < dates.length) {
+      await sleep(PAUSE_BETWEEN_SCOREBOARD_BATCHES_MS);
+    }
+  }
+  return out;
+}
+
+function cacheLookupKey(calendarDate: string): string {
+  return `${playoffSeasonFromDate(calendarDate)}:${calendarDate}`;
+}
+
+/**
+ * Fetch scoreboards across the playoff window in small batches (avoids NHL 429s) plus
+ * the playoff bracket, then compose round windows.
+ *
+ * When `db` is set, uses `nhl_scoreboard_day_cache`: loads hits from Postgres, fetches
+ * only misses plus a rolling tail refresh (`POOL_SCOREBOARD_CACHE_TAIL_DAYS`, default 2).
  */
 export async function buildPlayoffRoundWindows(
   playoffStart: string,
   asOfDate: string,
+  db?: Db | null,
 ): Promise<PlayoffRoundWindows> {
   const dates = eachDateInclusive(playoffStart, asOfDate);
   if (dates.length === 0) {
     return { dateToDominantRound: new Map(), roundsByNumber: new Map() };
   }
 
-  const settled = await Promise.allSettled(
-    dates.map((d) => fetchNhlScoreboard(d)),
-  );
-  const scoreboards: ScoreboardResponse[] = [];
-  for (const r of settled) {
-    if (r.status === "fulfilled") scoreboards.push(r.value);
+  let scoreboards: ScoreboardResponse[];
+
+  if (db) {
+    const cached = await loadCachedScoreboards(db, dates);
+    const tailDays = getScoreboardCacheTailDays();
+    const needFetch = computeDatesNeedingFetch({
+      datesAscending: dates,
+      cachedValidByKey: cached,
+      tailDays,
+    });
+    if (process.env.NODE_ENV !== "test") {
+      console.log(
+        `[nhl_scoreboard_cache] scoreboard_fetch_dates=${needFetch.length} total_window_days=${dates.length}`,
+      );
+    }
+
+    const fetchedByDate = await fetchScoreboardsInBatches(needFetch);
+    const upserts: { calendarDate: string; payload: ScoreboardResponse }[] = [];
+    for (const d of needFetch) {
+      const sb = fetchedByDate.get(d);
+      if (sb != null) upserts.push({ calendarDate: d, payload: sb });
+    }
+    await upsertScoreboardDayCache(db, upserts);
+
+    scoreboards = [];
+    for (const d of dates) {
+      const key = cacheLookupKey(d);
+      const fresh = fetchedByDate.get(d);
+      if (fresh != null) {
+        scoreboards.push(fresh);
+        continue;
+      }
+      const hit = cached.get(key);
+      if (hit != null) {
+        scoreboards.push(hit);
+      }
+    }
+  } else {
+    const fetchedByDate = await fetchScoreboardsInBatches(dates);
+    scoreboards = dates
+      .map((d) => fetchedByDate.get(d))
+      .filter((sb): sb is ScoreboardResponse => sb != null);
   }
 
   let bracket: PlayoffBracketResponse | null = null;
   try {
-    bracket = await fetchNhlPlayoffBracket(playoffSeasonFromDate(asOfDate));
+    bracket = await getCachedPlayoffBracket(playoffSeasonFromDate(asOfDate));
   } catch {
     bracket = null;
   }

@@ -908,7 +908,7 @@ export async function buildPoolReview(
     });
   }
 
-  const windows = await buildPlayoffRoundWindows(playoffStart, effectiveEnd);
+  const windows = await buildPlayoffRoundWindows(playoffStart, effectiveEnd, db);
 
   if (!db) {
     /** Live-today only; player-level tiles suppressed because we have no historical skater data. */

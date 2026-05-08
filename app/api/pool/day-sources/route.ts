@@ -7,7 +7,7 @@ import {
   buildPoolDaySources,
 } from "@/lib/pool/day-sources";
 import { resolvePoolSkaterDisplayNameMap } from "@/lib/pool/pool-skater-display-names";
-import { loadPlayoffDayNhlBundle } from "@/lib/pool/playoff-day-bundle";
+import { loadPlayoffDayNhlBundleCached } from "@/lib/pool/cached-playoff-day-bundle";
 import { loadPoolRosters } from "@/lib/pool/load-rosters";
 import { resolvePoolDateQueryParam } from "@/lib/pool/resolve-pool-date-query";
 import { SCOREBOARD_CACHE_CONTROL } from "@/lib/nhl/constants";
@@ -22,7 +22,7 @@ export async function GET(request: Request) {
 
   try {
     const rosters = loadPoolRosters();
-    const bundle = await loadPlayoffDayNhlBundle(date);
+    const bundle = await loadPlayoffDayNhlBundleCached(date);
 
     const skaterStats = bundle.skaterStats;
     const nhlNames = await resolvePoolSkaterDisplayNameMap(rosters.teams);

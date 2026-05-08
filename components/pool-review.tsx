@@ -4,9 +4,6 @@ import { useQuery } from "@tanstack/react-query";
 import { useMemo, useState } from "react";
 import { CenteredLoading } from "@/components/centered-loading";
 import { PoolScopeTiles, ScopeSubHeader } from "@/components/pool-scope-tiles";
-import { getPoolNeonBackedRefreshIntervalMs } from "@/lib/nhl/pool-neon-refresh-interval";
-import { getVisibleGamesForDay } from "@/lib/nhl/games-for-interval";
-import type { NhlScoreboardApiResponse } from "@/lib/nhl/schemas";
 import type {
   PoolReviewPayload,
   ScopeKey,
@@ -14,7 +11,7 @@ import type {
 } from "@/lib/pool/scope-summary";
 
 async function fetchJson<T>(url: string): Promise<T> {
-  const res = await fetch(url);
+  const res = await fetch(url, { cache: "no-store" });
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
     throw new Error(typeof err?.error === "string" ? err.error : "Request failed");
@@ -25,9 +22,6 @@ async function fetchJson<T>(url: string): Promise<T> {
 type Props = {
   /** YYYY-MM-DD; usually `poolCalendarToday()`. */
   asOfDate: string;
-  /** Today's scoreboard data drives the adaptive refetch interval. */
-  scoreboard?: NhlScoreboardApiResponse;
-  scoreboardSlateDate?: string;
 };
 
 const HEADING_ID = "pool-review-heading";
@@ -80,24 +74,16 @@ function pickDefaultScope(scopes: ReadonlyArray<ScopeSummary>): ScopeKey {
   return "all";
 }
 
-export function PoolReview({
-  asOfDate,
-  scoreboard,
-  scoreboardSlateDate,
-}: Props) {
-  const slateDate = scoreboardSlateDate ?? asOfDate;
-  const games = useMemo(
-    () => getVisibleGamesForDay(scoreboard, slateDate, true),
-    [scoreboard, slateDate],
-  );
-
+export function PoolReview({ asOfDate }: Props) {
   const query = useQuery({
     queryKey: ["pool-review", asOfDate],
     queryFn: () =>
       fetchJson<PoolReviewPayload>(
         `/api/pool/review?date=${encodeURIComponent(asOfDate)}`,
       ),
-    refetchInterval: () => getPoolNeonBackedRefreshIntervalMs(games),
+    /** Snapshots change after ingest; avoid infinite stale + HTTP cache showing old tiles. */
+    staleTime: 0,
+    refetchInterval: false,
   });
 
   const data = query.data;
@@ -180,7 +166,7 @@ export function PoolReview({
               Pool in review
             </h2>
             <p className="text-xs leading-snug text-zinc-600 dark:text-zinc-400">
-              Live highlights from the playoff run — refreshes alongside standings.
+              Highlights from the playoff run — updates after nightly scoring ingest.
               Switch tabs to slice by Stanley Cup round.
               {data.poolPlayerStatsAvailable
                 ? ""

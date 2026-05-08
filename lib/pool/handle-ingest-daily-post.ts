@@ -5,6 +5,7 @@ import {
   ingestPoolPointsForCalendarDate,
 } from "@/lib/pool/ingest-daily-points";
 import { joinErrorChain } from "@/lib/pool/db-error-chain";
+import { materializePoolIngestSnapshotsForDate } from "@/lib/pool/pool-ingest-snapshots";
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -39,7 +40,14 @@ export async function handleIngestDailyPost(request: Request): Promise<NextRespo
       return NextResponse.json({ error: "`from` must be <= `to`" }, { status: 400 });
     }
 
-    const results: Array<{ date: string; gamesOnSlate: number; teamsWritten: number }> = [];
+    type IngestRangeRow = {
+      date: string;
+      gamesOnSlate: number;
+      teamsWritten: number;
+      skatersWritten: number;
+      snapshot: Awaited<ReturnType<typeof materializePoolIngestSnapshotsForDate>>;
+    };
+    const results: IngestRangeRow[] = [];
     let cursor = parseISO(from);
     const end = parseISO(to);
     while (cursor.getTime() <= end.getTime()) {
@@ -47,7 +55,8 @@ export async function handleIngestDailyPost(request: Request): Promise<NextRespo
       try {
         assertIngestDateNotTodayIfStrict(ds, strictToday);
         const r = await ingestPoolPointsForCalendarDate(ds);
-        results.push({ date: ds, ...r });
+        const snapshot = await materializePoolIngestSnapshotsForDate(ds);
+        results.push({ date: ds, ...r, snapshot });
       } catch (e) {
         console.error("[ingest-daily]", e);
         const message = e instanceof Error ? e.message : "Ingest failed";
@@ -78,7 +87,8 @@ export async function handleIngestDailyPost(request: Request): Promise<NextRespo
   try {
     assertIngestDateNotTodayIfStrict(date, strictToday);
     const r = await ingestPoolPointsForCalendarDate(date);
-    return NextResponse.json({ ok: true, date, ...r });
+    const snapshot = await materializePoolIngestSnapshotsForDate(date);
+    return NextResponse.json({ ok: true, date, ...r, snapshot });
   } catch (e) {
     console.error("[ingest-daily]", e);
     const message = e instanceof Error ? e.message : "Ingest failed";

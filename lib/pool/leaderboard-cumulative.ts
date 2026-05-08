@@ -115,7 +115,8 @@ function standingRowsFromById(
   });
 }
 
-async function fetchDailyRowsForCutoff(
+/** Exported for pool team breakdown — same date window as cumulative leaderboard ingest. */
+export async function fetchDailyRowsForCutoff(
   db: NonNullable<ReturnType<typeof getDb>>,
   start: string,
   cutoffT: string,

@@ -4,7 +4,7 @@ import { buildDailyPointsSeries } from "@/lib/pool/daily-points-series";
 import { buildPoolReview } from "@/lib/pool/scope-summary";
 
 /** Shared TTL for deduping Neon-heavy builders across concurrent requests. */
-const POOL_QUERY_CACHE_REVALIDATE_SEC = 12;
+const POOL_QUERY_CACHE_REVALIDATE_SEC = 120;
 
 const cachedLeaderboard = unstable_cache(
   async (asOfDate: string) => buildLeaderboardResponse(asOfDate),

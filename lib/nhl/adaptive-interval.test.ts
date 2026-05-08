@@ -3,7 +3,6 @@ import {
   getNhlScoreboardRefreshIntervalMs,
   getNhlScoreboardRefreshIntervalMsCapped,
   NHL_REFRESH_MS,
-  NHL_UI_IDLE_POLL_CAP_MS,
 } from "@/lib/nhl/adaptive-interval";
 
 describe("getNhlScoreboardRefreshIntervalMs", () => {
@@ -52,19 +51,17 @@ describe("getNhlScoreboardRefreshIntervalMs", () => {
 });
 
 describe("getNhlScoreboardRefreshIntervalMsCapped", () => {
-  it("caps IDLE so DB/ingest updates are not stuck on a 10m poll", () => {
-    expect(getNhlScoreboardRefreshIntervalMsCapped([])).toBe(
-      NHL_UI_IDLE_POLL_CAP_MS,
-    );
+  it("returns false for idle slates so nothing polls overnight", () => {
+    expect(getNhlScoreboardRefreshIntervalMsCapped([])).toBe(false);
     expect(
       getNhlScoreboardRefreshIntervalMsCapped([
         { gameState: "OFF" },
         { gameState: "OFF" },
       ]),
-    ).toBe(NHL_UI_IDLE_POLL_CAP_MS);
+    ).toBe(false);
   });
 
-  it("does not cap LIVE or PREGAME below their faster intervals", () => {
+  it("returns LIVE and PREGAME intervals unchanged", () => {
     expect(
       getNhlScoreboardRefreshIntervalMsCapped([{ gameState: "LIVE" }]),
     ).toBe(NHL_REFRESH_MS.LIVE);

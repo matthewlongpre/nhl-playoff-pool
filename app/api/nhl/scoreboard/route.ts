@@ -1,9 +1,7 @@
 import { NextResponse } from "next/server";
 import { fetchPlayoffScoreboardWithCalendarFallback } from "@/lib/nhl/playoff-scoreboard-fallback";
-import {
-  fetchPlayoffTeamStatusByDate,
-  teamStatusMapToRecord,
-} from "@/lib/nhl/playoff-status";
+import { getCachedPlayoffTeamStatusByDate } from "@/lib/nhl/cached-playoff-team-status";
+import { teamStatusMapToRecord } from "@/lib/nhl/playoff-status";
 import { fetchNhlScoreboard } from "@/lib/nhl/upstream";
 import { SCOREBOARD_CACHE_CONTROL } from "@/lib/nhl/constants";
 
@@ -25,7 +23,8 @@ export async function GET(request: Request) {
     if (playoffFallback) {
       const { scoreboard, effectiveDate, requestedDate, fellBack } =
         await fetchPlayoffScoreboardWithCalendarFallback(date);
-      const teamStatusByAbbrev = await fetchPlayoffTeamStatusByDate(effectiveDate);
+      const teamStatusByAbbrev =
+        await getCachedPlayoffTeamStatusByDate(effectiveDate);
       return NextResponse.json(
         {
           ...scoreboard,

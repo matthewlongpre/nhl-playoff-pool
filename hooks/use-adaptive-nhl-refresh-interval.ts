@@ -6,7 +6,7 @@ import { getNhlScoreboardRefreshIntervalMsCapped } from "@/lib/nhl/adaptive-inte
 
 export function useAdaptiveNhlRefreshInterval(
   games: ReadonlyArray<ScoreboardGame>,
-): number {
+): number | false {
   return useMemo(
     () => getNhlScoreboardRefreshIntervalMsCapped(games),
     [games],

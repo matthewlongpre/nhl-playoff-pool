@@ -190,7 +190,8 @@ export function PoolStandings({
       void queryClient.invalidateQueries({
         queryKey: ["pool-daily-points-series"],
       });
-      void queryClient.invalidateQueries({ queryKey: ["pool-review"] });
+      void queryClient.invalidateQueries({ queryKey: ["pool-day-sources"] });
+      void queryClient.invalidateQueries({ queryKey: ["pool-team-day"] });
     }
   }, [neonBackedSlateFingerprint, queryClient]);
 
@@ -498,25 +499,11 @@ export function PoolStandings({
           </ul>
 
           <div className="order-2 mt-6 sm:order-3 sm:mt-8">
-            <PoolRosterOutlook
-              asOfDate={today}
-              onOpenTeam={goToTeamDetail}
-              refetchIntervalMs={getPoolNeonBackedRefreshIntervalMs(
-                getVisibleGamesForDay(
-                  scoreboardQuery.data,
-                  scoreboardSlateDate,
-                  true,
-                ),
-              )}
-            />
+            <PoolRosterOutlook asOfDate={today} onOpenTeam={goToTeamDetail} />
           </div>
 
           <div className="order-3 mt-6 sm:order-4 sm:mt-8">
-            <PoolReview
-              asOfDate={today}
-              scoreboard={scoreboardQuery.data}
-              scoreboardSlateDate={scoreboardSlateDate}
-            />
+            <PoolReview asOfDate={today} />
           </div>
 
           <div className="order-5 hidden overflow-x-auto rounded-2xl bg-white shadow-[0_4px_32px_-16px_rgba(0,0,0,0.12)] ring-1 ring-zinc-900/[0.04] dark:bg-zinc-950 dark:shadow-[0_8px_40px_-20px_rgba(0,0,0,0.65)] dark:ring-white/[0.06] sm:order-2 sm:block">
