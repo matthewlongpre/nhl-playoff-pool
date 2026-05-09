@@ -3,6 +3,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { format, parseISO } from "date-fns";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useMemo, useState } from "react";
 import { OwnerAvatarImage } from "@/components/owner-avatar-image";
 import { CenteredLoading } from "@/components/centered-loading";
@@ -107,7 +108,56 @@ function isTeamRemaining(
   return statusByAbbrev?.[abbrev] !== "eliminated";
 }
 
-export function PoolTeamDetailView({ teamId }: { teamId: string }) {
+type TeamStub = { id: string; name: string; ownerName: string; ownerAvatar?: string };
+
+function HeadToHeadSelector({
+  teamId,
+  allTeams,
+}: {
+  teamId: string;
+  allTeams: TeamStub[];
+}) {
+  const router = useRouter();
+  const opponents = allTeams.filter((t) => t.id !== teamId);
+  if (opponents.length === 0) return null;
+
+  return (
+    <div className="flex items-center gap-2">
+      <span className="text-[0.7rem] font-semibold uppercase tracking-[0.1em] text-zinc-500 dark:text-zinc-400">
+        Head to head
+      </span>
+      <select
+        defaultValue=""
+        onChange={(e) => {
+          if (e.target.value) {
+            router.push(
+              `/standings/team/${encodeURIComponent(teamId)}/vs/${encodeURIComponent(e.target.value)}`,
+            );
+          }
+        }}
+        className="rounded-lg border border-zinc-200/80 bg-white px-2 py-1 text-sm font-medium text-zinc-900 shadow-sm focus:outline-none focus:ring-2 focus:ring-amber-400/60 dark:border-zinc-700/60 dark:bg-zinc-900 dark:text-zinc-100"
+        aria-label="Compare against another team"
+      >
+        <option value="" disabled>
+          Compare vs…
+        </option>
+        {opponents.map((t) => (
+          <option key={t.id} value={t.id}>
+            {t.name}
+          </option>
+        ))}
+      </select>
+    </div>
+  );
+}
+
+export function PoolTeamDetailView({
+  teamId,
+  allTeams = [],
+}: {
+  teamId: string;
+  allTeams?: TeamStub[];
+}) {
   const today = poolCalendarToday();
   const yesterday = useMemo(() => previousCalendarDay(today), [today]);
   const [scoringDayTab, setScoringDayTab] = useState<"today" | "yesterday">(
@@ -308,12 +358,17 @@ export function PoolTeamDetailView({ teamId }: { teamId: string }) {
     <div className="mx-auto flex w-full max-w-4xl flex-col gap-10 px-4 py-10 sm:px-6">
       <div className="flex flex-col gap-3">
         <header className="flex flex-col gap-3 sm:gap-4">
-          <Link
-            href="/"
-            className="w-fit text-sm font-medium text-amber-800/90 underline-offset-2 hover:underline hover:text-amber-900 dark:text-amber-400/95 dark:hover:text-amber-300"
-          >
-            ← Standings
-          </Link>
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <Link
+              href="/"
+              className="w-fit text-sm font-medium text-amber-800/90 underline-offset-2 hover:underline hover:text-amber-900 dark:text-amber-400/95 dark:hover:text-amber-300"
+            >
+              ← Standings
+            </Link>
+            {allTeams.length > 1 ? (
+              <HeadToHeadSelector teamId={teamId} allTeams={allTeams} />
+            ) : null}
+          </div>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-8">
             <div className="flex min-w-0 items-center gap-4">
               {ownerAvatarSrc(team.ownerAvatar) ? (
