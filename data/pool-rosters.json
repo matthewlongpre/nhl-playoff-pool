@@ -7,30 +7,190 @@
       "ownerName": "Jordan Nijjar",
       "ownerAvatar": "jordannijjar.png",
       "picks": [
-        { "round": 1, "kind": "skater", "label": "Kucherov, N", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8476453 },
-        { "round": 2, "kind": "skater", "label": "Hagel, B", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8479542 },
-        { "round": 3, "kind": "skater", "label": "Svechnikov, A", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8480830 },
-        { "round": 4, "kind": "skater", "label": "Malkin, E", "position": "F", "nhlTeamAbbrev": "PIT", "nhlPlayerId": 8471215 },
-        { "round": 5, "kind": "skater", "label": "Cirelli, A", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8478519 },
-        { "round": 6, "kind": "skater", "label": "Point, B", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8478010 },
-        { "round": 7, "kind": "skater", "label": "Hall, T", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8475791 },
-        { "round": 8, "kind": "skater", "label": "Raddysh, D", "position": "D", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8478178 },
-        { "round": 9, "kind": "skater", "label": "Gostisbehere, S", "position": "D", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8476906 },
-        { "round": 10, "kind": "skater", "label": "Nikishin, A", "position": "D", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8482100 },
-        { "round": 11, "kind": "team", "label": "Tampa Bay Lightning", "teamAbbrev": "TBL" },
-        { "round": 12, "kind": "team", "label": "Pittsburgh Penguins", "teamAbbrev": "PIT" },
-        { "round": 13, "kind": "skater", "label": "McDavid, C", "position": "F", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8478402 },
-        { "round": 14, "kind": "skater", "label": "Robertson, J", "position": "F", "nhlTeamAbbrev": "DAL", "nhlPlayerId": 8480027 },
-        { "round": 15, "kind": "skater", "label": "Johnston, W", "position": "F", "nhlTeamAbbrev": "DAL", "nhlPlayerId": 8482740 },
-        { "round": 16, "kind": "skater", "label": "Hyman, Z", "position": "F", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8475786 },
-        { "round": 17, "kind": "skater", "label": "Nugent-Hopkins, R", "position": "F", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8476454 },
-        { "round": 18, "kind": "skater", "label": "Lehkonen, A", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8477476 },
-        { "round": 19, "kind": "skater", "label": "Nichushkin, V", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8477501 },
-        { "round": 20, "kind": "skater", "label": "Bouchard, E", "position": "D", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8480803 },
-        { "round": 21, "kind": "skater", "label": "Ekholm, M", "position": "D", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8475218 },
-        { "round": 22, "kind": "skater", "label": "Burns, B", "position": "D", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8470613 },
-        { "round": 23, "kind": "team", "label": "Colorado Avalanche", "teamAbbrev": "COL" },
-        { "round": 24, "kind": "team", "label": "Edmonton Oilers", "teamAbbrev": "EDM" }
+        {
+          "round": 1,
+          "kind": "skater",
+          "label": "Kucherov, N",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8476453
+        },
+        {
+          "round": 2,
+          "kind": "skater",
+          "label": "Hagel, B",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8479542
+        },
+        {
+          "round": 3,
+          "kind": "skater",
+          "label": "Svechnikov, A",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8480830
+        },
+        {
+          "round": 4,
+          "kind": "skater",
+          "label": "Malkin, E",
+          "position": "F",
+          "nhlTeamAbbrev": "PIT",
+          "nhlPlayerId": 8471215
+        },
+        {
+          "round": 5,
+          "kind": "skater",
+          "label": "Cirelli, A",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8478519
+        },
+        {
+          "round": 6,
+          "kind": "skater",
+          "label": "Point, B",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8478010
+        },
+        {
+          "round": 7,
+          "kind": "skater",
+          "label": "Hall, T",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8475791
+        },
+        {
+          "round": 8,
+          "kind": "skater",
+          "label": "Raddysh, D",
+          "position": "D",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8478178
+        },
+        {
+          "round": 9,
+          "kind": "skater",
+          "label": "Gostisbehere, S",
+          "position": "D",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8476906
+        },
+        {
+          "round": 10,
+          "kind": "skater",
+          "label": "Nikishin, A",
+          "position": "D",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8482100
+        },
+        {
+          "round": 11,
+          "kind": "team",
+          "label": "Tampa Bay Lightning",
+          "teamAbbrev": "TBL"
+        },
+        {
+          "round": 12,
+          "kind": "team",
+          "label": "Pittsburgh Penguins",
+          "teamAbbrev": "PIT"
+        },
+        {
+          "round": 13,
+          "kind": "skater",
+          "label": "McDavid, C",
+          "position": "F",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8478402
+        },
+        {
+          "round": 14,
+          "kind": "skater",
+          "label": "Robertson, J",
+          "position": "F",
+          "nhlTeamAbbrev": "DAL",
+          "nhlPlayerId": 8480027
+        },
+        {
+          "round": 15,
+          "kind": "skater",
+          "label": "Johnston, W",
+          "position": "F",
+          "nhlTeamAbbrev": "DAL",
+          "nhlPlayerId": 8482740
+        },
+        {
+          "round": 16,
+          "kind": "skater",
+          "label": "Hyman, Z",
+          "position": "F",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8475786
+        },
+        {
+          "round": 17,
+          "kind": "skater",
+          "label": "Nugent-Hopkins, R",
+          "position": "F",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8476454
+        },
+        {
+          "round": 18,
+          "kind": "skater",
+          "label": "Lehkonen, A",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8477476
+        },
+        {
+          "round": 19,
+          "kind": "skater",
+          "label": "Nichushkin, V",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8477501
+        },
+        {
+          "round": 20,
+          "kind": "skater",
+          "label": "Bouchard, E",
+          "position": "D",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8480803
+        },
+        {
+          "round": 21,
+          "kind": "skater",
+          "label": "Ekholm, M",
+          "position": "D",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8475218
+        },
+        {
+          "round": 22,
+          "kind": "skater",
+          "label": "Burns, B",
+          "position": "D",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8470613
+        },
+        {
+          "round": 23,
+          "kind": "team",
+          "label": "Colorado Avalanche",
+          "teamAbbrev": "COL"
+        },
+        {
+          "round": 24,
+          "kind": "team",
+          "label": "Edmonton Oilers",
+          "teamAbbrev": "EDM"
+        }
       ]
     },
     {
@@ -39,30 +199,190 @@
       "ownerName": "Amee Longpre",
       "ownerAvatar": "ameelongpre.png",
       "picks": [
-        { "round": 1, "kind": "skater", "label": "Suzuki, N", "position": "F", "nhlTeamAbbrev": "MTL", "nhlPlayerId": 8480018 },
-        { "round": 2, "kind": "skater", "label": "Aho, S", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8478427 },
-        { "round": 3, "kind": "skater", "label": "Geekie, M", "position": "F", "nhlTeamAbbrev": "BOS", "nhlPlayerId": 8479987 },
-        { "round": 4, "kind": "skater", "label": "Demidov, I", "position": "F", "nhlTeamAbbrev": "MTL", "nhlPlayerId": 8484984 },
-        { "round": 5, "kind": "skater", "label": "Cozens, D", "position": "F", "nhlTeamAbbrev": "OTT", "nhlPlayerId": 8481528 },
-        { "round": 6, "kind": "skater", "label": "Quinn, J", "position": "F", "nhlTeamAbbrev": "BUF", "nhlPlayerId": 8482097 },
-        { "round": 7, "kind": "skater", "label": "Lindholm, E", "position": "F", "nhlTeamAbbrev": "BOS", "nhlPlayerId": 8477496 },
-        { "round": 8, "kind": "skater", "label": "Hutson, L", "position": "D", "nhlTeamAbbrev": "MTL", "nhlPlayerId": 8483457 },
-        { "round": 9, "kind": "skater", "label": "Dobson, N", "position": "D", "nhlTeamAbbrev": "MTL", "nhlPlayerId": 8480865 },
-        { "round": 10, "kind": "skater", "label": "Nikishin, A", "position": "D", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8482100 },
-        { "round": 11, "kind": "team", "label": "Montreal Canadiens", "teamAbbrev": "MTL" },
-        { "round": 12, "kind": "team", "label": "Boston Bruins", "teamAbbrev": "BOS" },
-        { "round": 13, "kind": "skater", "label": "McDavid, C", "position": "F", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8478402 },
-        { "round": 14, "kind": "skater", "label": "Kaprizov, K", "position": "F", "nhlTeamAbbrev": "MIN", "nhlPlayerId": 8478864 },
-        { "round": 15, "kind": "skater", "label": "Zuccarello, M", "position": "F", "nhlTeamAbbrev": "MIN", "nhlPlayerId": 8475692 },
-        { "round": 16, "kind": "skater", "label": "Gauthier, C", "position": "F", "nhlTeamAbbrev": "ANA", "nhlPlayerId": 8483445 },
-        { "round": 17, "kind": "skater", "label": "Nugent-Hopkins, R", "position": "F", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8476454 },
-        { "round": 18, "kind": "skater", "label": "Lehkonen, A", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8477476 },
-        { "round": 19, "kind": "skater", "label": "Johansson, M", "position": "F", "nhlTeamAbbrev": "MIN", "nhlPlayerId": 8475149 },
-        { "round": 20, "kind": "skater", "label": "Bouchard, E", "position": "D", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8480803 },
-        { "round": 21, "kind": "skater", "label": "Ekholm, M", "position": "D", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8475218 },
-        { "round": 22, "kind": "skater", "label": "Burns, B", "position": "D", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8470613 },
-        { "round": 23, "kind": "team", "label": "Minnesota Wild", "teamAbbrev": "MIN" },
-        { "round": 24, "kind": "team", "label": "Edmonton Oilers", "teamAbbrev": "EDM" }
+        {
+          "round": 1,
+          "kind": "skater",
+          "label": "Suzuki, N",
+          "position": "F",
+          "nhlTeamAbbrev": "MTL",
+          "nhlPlayerId": 8480018
+        },
+        {
+          "round": 2,
+          "kind": "skater",
+          "label": "Aho, S",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8478427
+        },
+        {
+          "round": 3,
+          "kind": "skater",
+          "label": "Geekie, M",
+          "position": "F",
+          "nhlTeamAbbrev": "BOS",
+          "nhlPlayerId": 8479987
+        },
+        {
+          "round": 4,
+          "kind": "skater",
+          "label": "Demidov, I",
+          "position": "F",
+          "nhlTeamAbbrev": "MTL",
+          "nhlPlayerId": 8484984
+        },
+        {
+          "round": 5,
+          "kind": "skater",
+          "label": "Cozens, D",
+          "position": "F",
+          "nhlTeamAbbrev": "OTT",
+          "nhlPlayerId": 8481528
+        },
+        {
+          "round": 6,
+          "kind": "skater",
+          "label": "Quinn, J",
+          "position": "F",
+          "nhlTeamAbbrev": "BUF",
+          "nhlPlayerId": 8482097
+        },
+        {
+          "round": 7,
+          "kind": "skater",
+          "label": "Lindholm, E",
+          "position": "F",
+          "nhlTeamAbbrev": "BOS",
+          "nhlPlayerId": 8477496
+        },
+        {
+          "round": 8,
+          "kind": "skater",
+          "label": "Hutson, L",
+          "position": "D",
+          "nhlTeamAbbrev": "MTL",
+          "nhlPlayerId": 8483457
+        },
+        {
+          "round": 9,
+          "kind": "skater",
+          "label": "Dobson, N",
+          "position": "D",
+          "nhlTeamAbbrev": "MTL",
+          "nhlPlayerId": 8480865
+        },
+        {
+          "round": 10,
+          "kind": "skater",
+          "label": "Nikishin, A",
+          "position": "D",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8482100
+        },
+        {
+          "round": 11,
+          "kind": "team",
+          "label": "Montreal Canadiens",
+          "teamAbbrev": "MTL"
+        },
+        {
+          "round": 12,
+          "kind": "team",
+          "label": "Boston Bruins",
+          "teamAbbrev": "BOS"
+        },
+        {
+          "round": 13,
+          "kind": "skater",
+          "label": "McDavid, C",
+          "position": "F",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8478402
+        },
+        {
+          "round": 14,
+          "kind": "skater",
+          "label": "Kaprizov, K",
+          "position": "F",
+          "nhlTeamAbbrev": "MIN",
+          "nhlPlayerId": 8478864
+        },
+        {
+          "round": 15,
+          "kind": "skater",
+          "label": "Zuccarello, M",
+          "position": "F",
+          "nhlTeamAbbrev": "MIN",
+          "nhlPlayerId": 8475692
+        },
+        {
+          "round": 16,
+          "kind": "skater",
+          "label": "Gauthier, C",
+          "position": "F",
+          "nhlTeamAbbrev": "ANA",
+          "nhlPlayerId": 8483445
+        },
+        {
+          "round": 17,
+          "kind": "skater",
+          "label": "Nugent-Hopkins, R",
+          "position": "F",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8476454
+        },
+        {
+          "round": 18,
+          "kind": "skater",
+          "label": "Lehkonen, A",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8477476
+        },
+        {
+          "round": 19,
+          "kind": "skater",
+          "label": "Johansson, M",
+          "position": "F",
+          "nhlTeamAbbrev": "MIN",
+          "nhlPlayerId": 8475149
+        },
+        {
+          "round": 20,
+          "kind": "skater",
+          "label": "Bouchard, E",
+          "position": "D",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8480803
+        },
+        {
+          "round": 21,
+          "kind": "skater",
+          "label": "Ekholm, M",
+          "position": "D",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8475218
+        },
+        {
+          "round": 22,
+          "kind": "skater",
+          "label": "Burns, B",
+          "position": "D",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8470613
+        },
+        {
+          "round": 23,
+          "kind": "team",
+          "label": "Minnesota Wild",
+          "teamAbbrev": "MIN"
+        },
+        {
+          "round": 24,
+          "kind": "team",
+          "label": "Edmonton Oilers",
+          "teamAbbrev": "EDM"
+        }
       ]
     },
     {
@@ -71,30 +391,190 @@
       "ownerName": "Matthew Longpre",
       "ownerAvatar": "matthewlongpre.png",
       "picks": [
-        { "round": 1, "kind": "skater", "label": "Kucherov, N", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8476453 },
-        { "round": 2, "kind": "skater", "label": "Aho, S", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8478427 },
-        { "round": 3, "kind": "skater", "label": "Ehlers, N", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8477940 },
-        { "round": 4, "kind": "skater", "label": "Tuch, A", "position": "F", "nhlTeamAbbrev": "BUF", "nhlPlayerId": 8477949 },
-        { "round": 5, "kind": "skater", "label": "Cirelli, A", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8478519 },
-        { "round": 6, "kind": "skater", "label": "Point, B", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8478010 },
-        { "round": 7, "kind": "skater", "label": "Zucker, J", "position": "F", "nhlTeamAbbrev": "BUF", "nhlPlayerId": 8475722 },
-        { "round": 8, "kind": "skater", "label": "Raddysh, D", "position": "D", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8478178 },
-        { "round": 9, "kind": "skater", "label": "Miller, K", "position": "D", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8480817 },
-        { "round": 10, "kind": "skater", "label": "Nikishin, A", "position": "D", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8482100 },
-        { "round": 11, "kind": "team", "label": "Carolina Hurricanes", "teamAbbrev": "CAR" },
-        { "round": 12, "kind": "team", "label": "Pittsburgh Penguins", "teamAbbrev": "PIT" },
-        { "round": 13, "kind": "skater", "label": "McDavid, C", "position": "F", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8478402 },
-        { "round": 14, "kind": "skater", "label": "Kaprizov, K", "position": "F", "nhlTeamAbbrev": "MIN", "nhlPlayerId": 8478864 },
-        { "round": 15, "kind": "skater", "label": "Johnston, W", "position": "F", "nhlTeamAbbrev": "DAL", "nhlPlayerId": 8482740 },
-        { "round": 16, "kind": "skater", "label": "Hyman, Z", "position": "F", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8475786 },
-        { "round": 17, "kind": "skater", "label": "Nelson, B", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8475754 },
-        { "round": 18, "kind": "skater", "label": "Lehkonen, A", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8477476 },
-        { "round": 19, "kind": "skater", "label": "Nichushkin, V", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8477501 },
-        { "round": 20, "kind": "skater", "label": "Makar, C", "position": "D", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8480069 },
-        { "round": 21, "kind": "skater", "label": "Ekholm, M", "position": "D", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8475218 },
-        { "round": 22, "kind": "skater", "label": "Burns, B", "position": "D", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8470613 },
-        { "round": 23, "kind": "team", "label": "Colorado Avalanche", "teamAbbrev": "COL" },
-        { "round": 24, "kind": "team", "label": "Edmonton Oilers", "teamAbbrev": "EDM" }
+        {
+          "round": 1,
+          "kind": "skater",
+          "label": "Kucherov, N",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8476453
+        },
+        {
+          "round": 2,
+          "kind": "skater",
+          "label": "Aho, S",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8478427
+        },
+        {
+          "round": 3,
+          "kind": "skater",
+          "label": "Ehlers, N",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8477940
+        },
+        {
+          "round": 4,
+          "kind": "skater",
+          "label": "Tuch, A",
+          "position": "F",
+          "nhlTeamAbbrev": "BUF",
+          "nhlPlayerId": 8477949
+        },
+        {
+          "round": 5,
+          "kind": "skater",
+          "label": "Cirelli, A",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8478519
+        },
+        {
+          "round": 6,
+          "kind": "skater",
+          "label": "Point, B",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8478010
+        },
+        {
+          "round": 7,
+          "kind": "skater",
+          "label": "Zucker, J",
+          "position": "F",
+          "nhlTeamAbbrev": "BUF",
+          "nhlPlayerId": 8475722
+        },
+        {
+          "round": 8,
+          "kind": "skater",
+          "label": "Raddysh, D",
+          "position": "D",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8478178
+        },
+        {
+          "round": 9,
+          "kind": "skater",
+          "label": "Miller, K",
+          "position": "D",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8480817
+        },
+        {
+          "round": 10,
+          "kind": "skater",
+          "label": "Nikishin, A",
+          "position": "D",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8482100
+        },
+        {
+          "round": 11,
+          "kind": "team",
+          "label": "Carolina Hurricanes",
+          "teamAbbrev": "CAR"
+        },
+        {
+          "round": 12,
+          "kind": "team",
+          "label": "Pittsburgh Penguins",
+          "teamAbbrev": "PIT"
+        },
+        {
+          "round": 13,
+          "kind": "skater",
+          "label": "McDavid, C",
+          "position": "F",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8478402
+        },
+        {
+          "round": 14,
+          "kind": "skater",
+          "label": "Kaprizov, K",
+          "position": "F",
+          "nhlTeamAbbrev": "MIN",
+          "nhlPlayerId": 8478864
+        },
+        {
+          "round": 15,
+          "kind": "skater",
+          "label": "Johnston, W",
+          "position": "F",
+          "nhlTeamAbbrev": "DAL",
+          "nhlPlayerId": 8482740
+        },
+        {
+          "round": 16,
+          "kind": "skater",
+          "label": "Hyman, Z",
+          "position": "F",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8475786
+        },
+        {
+          "round": 17,
+          "kind": "skater",
+          "label": "Nelson, B",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8475754
+        },
+        {
+          "round": 18,
+          "kind": "skater",
+          "label": "Lehkonen, A",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8477476
+        },
+        {
+          "round": 19,
+          "kind": "skater",
+          "label": "Nichushkin, V",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8477501
+        },
+        {
+          "round": 20,
+          "kind": "skater",
+          "label": "Makar, C",
+          "position": "D",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8480069
+        },
+        {
+          "round": 21,
+          "kind": "skater",
+          "label": "Ekholm, M",
+          "position": "D",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8475218
+        },
+        {
+          "round": 22,
+          "kind": "skater",
+          "label": "Burns, B",
+          "position": "D",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8470613
+        },
+        {
+          "round": 23,
+          "kind": "team",
+          "label": "Colorado Avalanche",
+          "teamAbbrev": "COL"
+        },
+        {
+          "round": 24,
+          "kind": "team",
+          "label": "Edmonton Oilers",
+          "teamAbbrev": "EDM"
+        }
       ]
     },
     {
@@ -103,30 +583,190 @@
       "ownerName": "Amanda Nijjar",
       "ownerAvatar": "amandanijjar.png",
       "picks": [
-        { "round": 1, "kind": "skater", "label": "Kucherov, N", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8476453 },
-        { "round": 2, "kind": "skater", "label": "Hagel, B", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8479542 },
-        { "round": 3, "kind": "skater", "label": "Svechnikov, A", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8480830 },
-        { "round": 4, "kind": "skater", "label": "Mantha, A", "position": "F", "nhlTeamAbbrev": "PIT", "nhlPlayerId": 8477511 },
-        { "round": 5, "kind": "skater", "label": "McLeod, R", "position": "F", "nhlTeamAbbrev": "BUF", "nhlPlayerId": 8480802 },
-        { "round": 6, "kind": "skater", "label": "Doan, J", "position": "F", "nhlTeamAbbrev": "BUF", "nhlPlayerId": 8482659 },
-        { "round": 7, "kind": "skater", "label": "Lindholm, E", "position": "F", "nhlTeamAbbrev": "BOS", "nhlPlayerId": 8477496 },
-        { "round": 8, "kind": "skater", "label": "Hutson, L", "position": "D", "nhlTeamAbbrev": "MTL", "nhlPlayerId": 8483457 },
-        { "round": 9, "kind": "skater", "label": "Matheson, M", "position": "D", "nhlTeamAbbrev": "MTL", "nhlPlayerId": 8476875 },
-        { "round": 10, "kind": "skater", "label": "Letang, K", "position": "D", "nhlTeamAbbrev": "PIT", "nhlPlayerId": 8471724 },
-        { "round": 11, "kind": "team", "label": "Carolina Hurricanes", "teamAbbrev": "CAR" },
-        { "round": 12, "kind": "team", "label": "Pittsburgh Penguins", "teamAbbrev": "PIT" },
-        { "round": 13, "kind": "skater", "label": "MacKinnon, N", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8477492 },
-        { "round": 14, "kind": "skater", "label": "Robertson, J", "position": "F", "nhlTeamAbbrev": "DAL", "nhlPlayerId": 8480027 },
-        { "round": 15, "kind": "skater", "label": "Marner, M", "position": "F", "nhlTeamAbbrev": "VGK", "nhlPlayerId": 8478483 },
-        { "round": 16, "kind": "skater", "label": "Schmaltz, N", "position": "F", "nhlTeamAbbrev": "UTA", "nhlPlayerId": 8477951 },
-        { "round": 17, "kind": "skater", "label": "Nelson, B", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8475754 },
-        { "round": 18, "kind": "skater", "label": "Barbashev, I", "position": "F", "nhlTeamAbbrev": "VGK", "nhlPlayerId": 8477964 },
-        { "round": 19, "kind": "skater", "label": "Granlund, M", "position": "F", "nhlTeamAbbrev": "ANA", "nhlPlayerId": 8475798 },
-        { "round": 20, "kind": "skater", "label": "Bouchard, E", "position": "D", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8480803 },
-        { "round": 21, "kind": "skater", "label": "Clarke, B", "position": "D", "nhlTeamAbbrev": "LAK", "nhlPlayerId": 8482730 },
-        { "round": 22, "kind": "skater", "label": "Burns, B", "position": "D", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8470613 },
-        { "round": 23, "kind": "team", "label": "Colorado Avalanche", "teamAbbrev": "COL" },
-        { "round": 24, "kind": "team", "label": "Utah Mammoth", "teamAbbrev": "UTA" }
+        {
+          "round": 1,
+          "kind": "skater",
+          "label": "Kucherov, N",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8476453
+        },
+        {
+          "round": 2,
+          "kind": "skater",
+          "label": "Hagel, B",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8479542
+        },
+        {
+          "round": 3,
+          "kind": "skater",
+          "label": "Svechnikov, A",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8480830
+        },
+        {
+          "round": 4,
+          "kind": "skater",
+          "label": "Mantha, A",
+          "position": "F",
+          "nhlTeamAbbrev": "PIT",
+          "nhlPlayerId": 8477511
+        },
+        {
+          "round": 5,
+          "kind": "skater",
+          "label": "McLeod, R",
+          "position": "F",
+          "nhlTeamAbbrev": "BUF",
+          "nhlPlayerId": 8480802
+        },
+        {
+          "round": 6,
+          "kind": "skater",
+          "label": "Doan, J",
+          "position": "F",
+          "nhlTeamAbbrev": "BUF",
+          "nhlPlayerId": 8482659
+        },
+        {
+          "round": 7,
+          "kind": "skater",
+          "label": "Lindholm, E",
+          "position": "F",
+          "nhlTeamAbbrev": "BOS",
+          "nhlPlayerId": 8477496
+        },
+        {
+          "round": 8,
+          "kind": "skater",
+          "label": "Hutson, L",
+          "position": "D",
+          "nhlTeamAbbrev": "MTL",
+          "nhlPlayerId": 8483457
+        },
+        {
+          "round": 9,
+          "kind": "skater",
+          "label": "Matheson, M",
+          "position": "D",
+          "nhlTeamAbbrev": "MTL",
+          "nhlPlayerId": 8476875
+        },
+        {
+          "round": 10,
+          "kind": "skater",
+          "label": "Letang, K",
+          "position": "D",
+          "nhlTeamAbbrev": "PIT",
+          "nhlPlayerId": 8471724
+        },
+        {
+          "round": 11,
+          "kind": "team",
+          "label": "Carolina Hurricanes",
+          "teamAbbrev": "CAR"
+        },
+        {
+          "round": 12,
+          "kind": "team",
+          "label": "Pittsburgh Penguins",
+          "teamAbbrev": "PIT"
+        },
+        {
+          "round": 13,
+          "kind": "skater",
+          "label": "MacKinnon, N",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8477492
+        },
+        {
+          "round": 14,
+          "kind": "skater",
+          "label": "Robertson, J",
+          "position": "F",
+          "nhlTeamAbbrev": "DAL",
+          "nhlPlayerId": 8480027
+        },
+        {
+          "round": 15,
+          "kind": "skater",
+          "label": "Marner, M",
+          "position": "F",
+          "nhlTeamAbbrev": "VGK",
+          "nhlPlayerId": 8478483
+        },
+        {
+          "round": 16,
+          "kind": "skater",
+          "label": "Schmaltz, N",
+          "position": "F",
+          "nhlTeamAbbrev": "UTA",
+          "nhlPlayerId": 8477951
+        },
+        {
+          "round": 17,
+          "kind": "skater",
+          "label": "Nelson, B",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8475754
+        },
+        {
+          "round": 18,
+          "kind": "skater",
+          "label": "Barbashev, I",
+          "position": "F",
+          "nhlTeamAbbrev": "VGK",
+          "nhlPlayerId": 8477964
+        },
+        {
+          "round": 19,
+          "kind": "skater",
+          "label": "Granlund, M",
+          "position": "F",
+          "nhlTeamAbbrev": "ANA",
+          "nhlPlayerId": 8475798
+        },
+        {
+          "round": 20,
+          "kind": "skater",
+          "label": "Bouchard, E",
+          "position": "D",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8480803
+        },
+        {
+          "round": 21,
+          "kind": "skater",
+          "label": "Clarke, B",
+          "position": "D",
+          "nhlTeamAbbrev": "LAK",
+          "nhlPlayerId": 8482730
+        },
+        {
+          "round": 22,
+          "kind": "skater",
+          "label": "Burns, B",
+          "position": "D",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8470613
+        },
+        {
+          "round": 23,
+          "kind": "team",
+          "label": "Colorado Avalanche",
+          "teamAbbrev": "COL"
+        },
+        {
+          "round": 24,
+          "kind": "team",
+          "label": "Utah Mammoth",
+          "teamAbbrev": "UTA"
+        }
       ]
     },
     {
@@ -135,30 +775,190 @@
       "ownerName": "Courtney Wilcox",
       "ownerAvatar": "courtneywilcox.png",
       "picks": [
-        { "round": 1, "kind": "skater", "label": "Kucherov, N", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8476453 },
-        { "round": 2, "kind": "skater", "label": "Aho, S", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8478427 },
-        { "round": 3, "kind": "skater", "label": "Jarvis, S", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8482093 },
-        { "round": 4, "kind": "skater", "label": "Malkin, E", "position": "F", "nhlTeamAbbrev": "PIT", "nhlPlayerId": 8471215 },
-        { "round": 5, "kind": "skater", "label": "Tkachuk, B", "position": "F", "nhlTeamAbbrev": "OTT", "nhlPlayerId": 8480801 },
-        { "round": 6, "kind": "skater", "label": "Point, B", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8478010 },
-        { "round": 7, "kind": "skater", "label": "Lindholm, E", "position": "F", "nhlTeamAbbrev": "BOS", "nhlPlayerId": 8477496 },
-        { "round": 8, "kind": "skater", "label": "Dahlin, R", "position": "D", "nhlTeamAbbrev": "BUF", "nhlPlayerId": 8480839 },
-        { "round": 9, "kind": "skater", "label": "Gostisbehere, S", "position": "D", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8476906 },
-        { "round": 10, "kind": "skater", "label": "Chabot, T", "position": "D", "nhlTeamAbbrev": "OTT", "nhlPlayerId": 8478469 },
-        { "round": 11, "kind": "team", "label": "Carolina Hurricanes", "teamAbbrev": "CAR" },
-        { "round": 12, "kind": "team", "label": "Boston Bruins", "teamAbbrev": "BOS" },
-        { "round": 13, "kind": "skater", "label": "McDavid, C", "position": "F", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8478402 },
-        { "round": 14, "kind": "skater", "label": "Eichel, J", "position": "F", "nhlTeamAbbrev": "VGK", "nhlPlayerId": 8478403 },
-        { "round": 15, "kind": "skater", "label": "Marner, M", "position": "F", "nhlTeamAbbrev": "VGK", "nhlPlayerId": 8478483 },
-        { "round": 16, "kind": "skater", "label": "Kempe, A", "position": "F", "nhlTeamAbbrev": "LAK", "nhlPlayerId": 8477960 },
-        { "round": 17, "kind": "skater", "label": "Nugent-Hopkins, R", "position": "F", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8476454 },
-        { "round": 18, "kind": "skater", "label": "Barbashev, I", "position": "F", "nhlTeamAbbrev": "VGK", "nhlPlayerId": 8477964 },
-        { "round": 19, "kind": "skater", "label": "Nichushkin, V", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8477501 },
-        { "round": 20, "kind": "skater", "label": "Makar, C", "position": "D", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8480069 },
-        { "round": 21, "kind": "skater", "label": "Faber, B", "position": "D", "nhlTeamAbbrev": "MIN", "nhlPlayerId": 8482122 },
-        { "round": 22, "kind": "skater", "label": "Theodore, S", "position": "D", "nhlTeamAbbrev": "VGK", "nhlPlayerId": 8477447 },
-        { "round": 23, "kind": "team", "label": "Colorado Avalanche", "teamAbbrev": "COL" },
-        { "round": 24, "kind": "team", "label": "Edmonton Oilers", "teamAbbrev": "EDM" }
+        {
+          "round": 1,
+          "kind": "skater",
+          "label": "Kucherov, N",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8476453
+        },
+        {
+          "round": 2,
+          "kind": "skater",
+          "label": "Aho, S",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8478427
+        },
+        {
+          "round": 3,
+          "kind": "skater",
+          "label": "Jarvis, S",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8482093
+        },
+        {
+          "round": 4,
+          "kind": "skater",
+          "label": "Malkin, E",
+          "position": "F",
+          "nhlTeamAbbrev": "PIT",
+          "nhlPlayerId": 8471215
+        },
+        {
+          "round": 5,
+          "kind": "skater",
+          "label": "Tkachuk, B",
+          "position": "F",
+          "nhlTeamAbbrev": "OTT",
+          "nhlPlayerId": 8480801
+        },
+        {
+          "round": 6,
+          "kind": "skater",
+          "label": "Point, B",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8478010
+        },
+        {
+          "round": 7,
+          "kind": "skater",
+          "label": "Lindholm, E",
+          "position": "F",
+          "nhlTeamAbbrev": "BOS",
+          "nhlPlayerId": 8477496
+        },
+        {
+          "round": 8,
+          "kind": "skater",
+          "label": "Dahlin, R",
+          "position": "D",
+          "nhlTeamAbbrev": "BUF",
+          "nhlPlayerId": 8480839
+        },
+        {
+          "round": 9,
+          "kind": "skater",
+          "label": "Gostisbehere, S",
+          "position": "D",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8476906
+        },
+        {
+          "round": 10,
+          "kind": "skater",
+          "label": "Chabot, T",
+          "position": "D",
+          "nhlTeamAbbrev": "OTT",
+          "nhlPlayerId": 8478469
+        },
+        {
+          "round": 11,
+          "kind": "team",
+          "label": "Carolina Hurricanes",
+          "teamAbbrev": "CAR"
+        },
+        {
+          "round": 12,
+          "kind": "team",
+          "label": "Boston Bruins",
+          "teamAbbrev": "BOS"
+        },
+        {
+          "round": 13,
+          "kind": "skater",
+          "label": "McDavid, C",
+          "position": "F",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8478402
+        },
+        {
+          "round": 14,
+          "kind": "skater",
+          "label": "Eichel, J",
+          "position": "F",
+          "nhlTeamAbbrev": "VGK",
+          "nhlPlayerId": 8478403
+        },
+        {
+          "round": 15,
+          "kind": "skater",
+          "label": "Marner, M",
+          "position": "F",
+          "nhlTeamAbbrev": "VGK",
+          "nhlPlayerId": 8478483
+        },
+        {
+          "round": 16,
+          "kind": "skater",
+          "label": "Kempe, A",
+          "position": "F",
+          "nhlTeamAbbrev": "LAK",
+          "nhlPlayerId": 8477960
+        },
+        {
+          "round": 17,
+          "kind": "skater",
+          "label": "Nugent-Hopkins, R",
+          "position": "F",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8476454
+        },
+        {
+          "round": 18,
+          "kind": "skater",
+          "label": "Barbashev, I",
+          "position": "F",
+          "nhlTeamAbbrev": "VGK",
+          "nhlPlayerId": 8477964
+        },
+        {
+          "round": 19,
+          "kind": "skater",
+          "label": "Nichushkin, V",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8477501
+        },
+        {
+          "round": 20,
+          "kind": "skater",
+          "label": "Makar, C",
+          "position": "D",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8480069
+        },
+        {
+          "round": 21,
+          "kind": "skater",
+          "label": "Faber, B",
+          "position": "D",
+          "nhlTeamAbbrev": "MIN",
+          "nhlPlayerId": 8482122
+        },
+        {
+          "round": 22,
+          "kind": "skater",
+          "label": "Theodore, S",
+          "position": "D",
+          "nhlTeamAbbrev": "VGK",
+          "nhlPlayerId": 8477447
+        },
+        {
+          "round": 23,
+          "kind": "team",
+          "label": "Colorado Avalanche",
+          "teamAbbrev": "COL"
+        },
+        {
+          "round": 24,
+          "kind": "team",
+          "label": "Edmonton Oilers",
+          "teamAbbrev": "EDM"
+        }
       ]
     },
     {
@@ -167,30 +967,190 @@
       "ownerName": "Kale Rogers",
       "ownerAvatar": "kalerogers.png",
       "picks": [
-        { "round": 1, "kind": "skater", "label": "Kucherov, N", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8476453 },
-        { "round": 2, "kind": "skater", "label": "Crosby, S", "position": "F", "nhlTeamAbbrev": "PIT", "nhlPlayerId": 8471675 },
-        { "round": 3, "kind": "skater", "label": "Zegras, T", "position": "F", "nhlTeamAbbrev": "PHI", "nhlPlayerId": 8481533 },
-        { "round": 4, "kind": "skater", "label": "Malkin, E", "position": "F", "nhlTeamAbbrev": "PIT", "nhlPlayerId": 8471215 },
-        { "round": 5, "kind": "skater", "label": "Tkachuk, B", "position": "F", "nhlTeamAbbrev": "OTT", "nhlPlayerId": 8480801 },
-        { "round": 6, "kind": "skater", "label": "Point, B", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8478010 },
-        { "round": 7, "kind": "skater", "label": "Giroux, C", "position": "F", "nhlTeamAbbrev": "OTT", "nhlPlayerId": 8473512 },
-        { "round": 8, "kind": "skater", "label": "Hutson, L", "position": "D", "nhlTeamAbbrev": "MTL", "nhlPlayerId": 8483457 },
-        { "round": 9, "kind": "skater", "label": "Matheson, M", "position": "D", "nhlTeamAbbrev": "MTL", "nhlPlayerId": 8476875 },
-        { "round": 10, "kind": "skater", "label": "Chabot, T", "position": "D", "nhlTeamAbbrev": "OTT", "nhlPlayerId": 8478469 },
-        { "round": 11, "kind": "team", "label": "Montreal Canadiens", "teamAbbrev": "MTL" },
-        { "round": 12, "kind": "team", "label": "Ottawa Senators", "teamAbbrev": "OTT" },
-        { "round": 13, "kind": "skater", "label": "McDavid, C", "position": "F", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8478402 },
-        { "round": 14, "kind": "skater", "label": "Eichel, J", "position": "F", "nhlTeamAbbrev": "VGK", "nhlPlayerId": 8478403 },
-        { "round": 15, "kind": "skater", "label": "Marner, M", "position": "F", "nhlTeamAbbrev": "VGK", "nhlPlayerId": 8478483 },
-        { "round": 16, "kind": "skater", "label": "Hyman, Z", "position": "F", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8475786 },
-        { "round": 17, "kind": "skater", "label": "Nelson, B", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8475754 },
-        { "round": 18, "kind": "skater", "label": "Barbashev, I", "position": "F", "nhlTeamAbbrev": "VGK", "nhlPlayerId": 8477964 },
-        { "round": 19, "kind": "skater", "label": "Johansson, M", "position": "F", "nhlTeamAbbrev": "MIN", "nhlPlayerId": 8475149 },
-        { "round": 20, "kind": "skater", "label": "Makar, C", "position": "D", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8480069 },
-        { "round": 21, "kind": "skater", "label": "Ekholm, M", "position": "D", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8475218 },
-        { "round": 22, "kind": "skater", "label": "Theodore, S", "position": "D", "nhlTeamAbbrev": "VGK", "nhlPlayerId": 8477447 },
-        { "round": 23, "kind": "team", "label": "Colorado Avalanche", "teamAbbrev": "COL" },
-        { "round": 24, "kind": "team", "label": "Edmonton Oilers", "teamAbbrev": "EDM" }
+        {
+          "round": 1,
+          "kind": "skater",
+          "label": "Kucherov, N",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8476453
+        },
+        {
+          "round": 2,
+          "kind": "skater",
+          "label": "Crosby, S",
+          "position": "F",
+          "nhlTeamAbbrev": "PIT",
+          "nhlPlayerId": 8471675
+        },
+        {
+          "round": 3,
+          "kind": "skater",
+          "label": "Zegras, T",
+          "position": "F",
+          "nhlTeamAbbrev": "PHI",
+          "nhlPlayerId": 8481533
+        },
+        {
+          "round": 4,
+          "kind": "skater",
+          "label": "Malkin, E",
+          "position": "F",
+          "nhlTeamAbbrev": "PIT",
+          "nhlPlayerId": 8471215
+        },
+        {
+          "round": 5,
+          "kind": "skater",
+          "label": "Tkachuk, B",
+          "position": "F",
+          "nhlTeamAbbrev": "OTT",
+          "nhlPlayerId": 8480801
+        },
+        {
+          "round": 6,
+          "kind": "skater",
+          "label": "Point, B",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8478010
+        },
+        {
+          "round": 7,
+          "kind": "skater",
+          "label": "Giroux, C",
+          "position": "F",
+          "nhlTeamAbbrev": "OTT",
+          "nhlPlayerId": 8473512
+        },
+        {
+          "round": 8,
+          "kind": "skater",
+          "label": "Hutson, L",
+          "position": "D",
+          "nhlTeamAbbrev": "MTL",
+          "nhlPlayerId": 8483457
+        },
+        {
+          "round": 9,
+          "kind": "skater",
+          "label": "Matheson, M",
+          "position": "D",
+          "nhlTeamAbbrev": "MTL",
+          "nhlPlayerId": 8476875
+        },
+        {
+          "round": 10,
+          "kind": "skater",
+          "label": "Chabot, T",
+          "position": "D",
+          "nhlTeamAbbrev": "OTT",
+          "nhlPlayerId": 8478469
+        },
+        {
+          "round": 11,
+          "kind": "team",
+          "label": "Montreal Canadiens",
+          "teamAbbrev": "MTL"
+        },
+        {
+          "round": 12,
+          "kind": "team",
+          "label": "Ottawa Senators",
+          "teamAbbrev": "OTT"
+        },
+        {
+          "round": 13,
+          "kind": "skater",
+          "label": "McDavid, C",
+          "position": "F",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8478402
+        },
+        {
+          "round": 14,
+          "kind": "skater",
+          "label": "Eichel, J",
+          "position": "F",
+          "nhlTeamAbbrev": "VGK",
+          "nhlPlayerId": 8478403
+        },
+        {
+          "round": 15,
+          "kind": "skater",
+          "label": "Marner, M",
+          "position": "F",
+          "nhlTeamAbbrev": "VGK",
+          "nhlPlayerId": 8478483
+        },
+        {
+          "round": 16,
+          "kind": "skater",
+          "label": "Hyman, Z",
+          "position": "F",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8475786
+        },
+        {
+          "round": 17,
+          "kind": "skater",
+          "label": "Nelson, B",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8475754
+        },
+        {
+          "round": 18,
+          "kind": "skater",
+          "label": "Barbashev, I",
+          "position": "F",
+          "nhlTeamAbbrev": "VGK",
+          "nhlPlayerId": 8477964
+        },
+        {
+          "round": 19,
+          "kind": "skater",
+          "label": "Johansson, M",
+          "position": "F",
+          "nhlTeamAbbrev": "MIN",
+          "nhlPlayerId": 8475149
+        },
+        {
+          "round": 20,
+          "kind": "skater",
+          "label": "Makar, C",
+          "position": "D",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8480069
+        },
+        {
+          "round": 21,
+          "kind": "skater",
+          "label": "Ekholm, M",
+          "position": "D",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8475218
+        },
+        {
+          "round": 22,
+          "kind": "skater",
+          "label": "Theodore, S",
+          "position": "D",
+          "nhlTeamAbbrev": "VGK",
+          "nhlPlayerId": 8477447
+        },
+        {
+          "round": 23,
+          "kind": "team",
+          "label": "Colorado Avalanche",
+          "teamAbbrev": "COL"
+        },
+        {
+          "round": 24,
+          "kind": "team",
+          "label": "Edmonton Oilers",
+          "teamAbbrev": "EDM"
+        }
       ]
     },
     {
@@ -199,30 +1159,190 @@
       "ownerName": "Thea Clease",
       "ownerAvatar": "theaclease.png",
       "picks": [
-        { "round": 1, "kind": "skater", "label": "Kucherov, N", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8476453 },
-        { "round": 2, "kind": "skater", "label": "Hagel, B", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8479542 },
-        { "round": 3, "kind": "skater", "label": "Ehlers, N", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8477940 },
-        { "round": 4, "kind": "skater", "label": "Tuch, A", "position": "F", "nhlTeamAbbrev": "BUF", "nhlPlayerId": 8477949 },
-        { "round": 5, "kind": "skater", "label": "McLeod, R", "position": "F", "nhlTeamAbbrev": "BUF", "nhlPlayerId": 8480802 },
-        { "round": 6, "kind": "skater", "label": "Quinn, J", "position": "F", "nhlTeamAbbrev": "BUF", "nhlPlayerId": 8482097 },
-        { "round": 7, "kind": "skater", "label": "Hall, T", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8475791 },
-        { "round": 8, "kind": "skater", "label": "Dahlin, R", "position": "D", "nhlTeamAbbrev": "BUF", "nhlPlayerId": 8480839 },
-        { "round": 9, "kind": "skater", "label": "Gostisbehere, S", "position": "D", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8476906 },
-        { "round": 10, "kind": "skater", "label": "Nikishin, A", "position": "D", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8482100 },
-        { "round": 11, "kind": "team", "label": "Tampa Bay Lightning", "teamAbbrev": "TBL" },
-        { "round": 12, "kind": "team", "label": "Ottawa Senators", "teamAbbrev": "OTT" },
-        { "round": 13, "kind": "skater", "label": "McDavid, C", "position": "F", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8478402 },
-        { "round": 14, "kind": "skater", "label": "Eichel, J", "position": "F", "nhlTeamAbbrev": "VGK", "nhlPlayerId": 8478403 },
-        { "round": 15, "kind": "skater", "label": "Marner, M", "position": "F", "nhlTeamAbbrev": "VGK", "nhlPlayerId": 8478483 },
-        { "round": 16, "kind": "skater", "label": "Hyman, Z", "position": "F", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8475786 },
-        { "round": 17, "kind": "skater", "label": "Nelson, B", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8475754 },
-        { "round": 18, "kind": "skater", "label": "Lehkonen, A", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8477476 },
-        { "round": 19, "kind": "skater", "label": "Nichushkin, V", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8477501 },
-        { "round": 20, "kind": "skater", "label": "Makar, C", "position": "D", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8480069 },
-        { "round": 21, "kind": "skater", "label": "Ekholm, M", "position": "D", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8475218 },
-        { "round": 22, "kind": "skater", "label": "Burns, B", "position": "D", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8470613 },
-        { "round": 23, "kind": "team", "label": "Colorado Avalanche", "teamAbbrev": "COL" },
-        { "round": 24, "kind": "team", "label": "Edmonton Oilers", "teamAbbrev": "EDM" }
+        {
+          "round": 1,
+          "kind": "skater",
+          "label": "Kucherov, N",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8476453
+        },
+        {
+          "round": 2,
+          "kind": "skater",
+          "label": "Hagel, B",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8479542
+        },
+        {
+          "round": 3,
+          "kind": "skater",
+          "label": "Ehlers, N",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8477940
+        },
+        {
+          "round": 4,
+          "kind": "skater",
+          "label": "Tuch, A",
+          "position": "F",
+          "nhlTeamAbbrev": "BUF",
+          "nhlPlayerId": 8477949
+        },
+        {
+          "round": 5,
+          "kind": "skater",
+          "label": "McLeod, R",
+          "position": "F",
+          "nhlTeamAbbrev": "BUF",
+          "nhlPlayerId": 8480802
+        },
+        {
+          "round": 6,
+          "kind": "skater",
+          "label": "Quinn, J",
+          "position": "F",
+          "nhlTeamAbbrev": "BUF",
+          "nhlPlayerId": 8482097
+        },
+        {
+          "round": 7,
+          "kind": "skater",
+          "label": "Hall, T",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8475791
+        },
+        {
+          "round": 8,
+          "kind": "skater",
+          "label": "Dahlin, R",
+          "position": "D",
+          "nhlTeamAbbrev": "BUF",
+          "nhlPlayerId": 8480839
+        },
+        {
+          "round": 9,
+          "kind": "skater",
+          "label": "Gostisbehere, S",
+          "position": "D",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8476906
+        },
+        {
+          "round": 10,
+          "kind": "skater",
+          "label": "Nikishin, A",
+          "position": "D",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8482100
+        },
+        {
+          "round": 11,
+          "kind": "team",
+          "label": "Tampa Bay Lightning",
+          "teamAbbrev": "TBL"
+        },
+        {
+          "round": 12,
+          "kind": "team",
+          "label": "Ottawa Senators",
+          "teamAbbrev": "OTT"
+        },
+        {
+          "round": 13,
+          "kind": "skater",
+          "label": "McDavid, C",
+          "position": "F",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8478402
+        },
+        {
+          "round": 14,
+          "kind": "skater",
+          "label": "Eichel, J",
+          "position": "F",
+          "nhlTeamAbbrev": "VGK",
+          "nhlPlayerId": 8478403
+        },
+        {
+          "round": 15,
+          "kind": "skater",
+          "label": "Marner, M",
+          "position": "F",
+          "nhlTeamAbbrev": "VGK",
+          "nhlPlayerId": 8478483
+        },
+        {
+          "round": 16,
+          "kind": "skater",
+          "label": "Hyman, Z",
+          "position": "F",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8475786
+        },
+        {
+          "round": 17,
+          "kind": "skater",
+          "label": "Nelson, B",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8475754
+        },
+        {
+          "round": 18,
+          "kind": "skater",
+          "label": "Lehkonen, A",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8477476
+        },
+        {
+          "round": 19,
+          "kind": "skater",
+          "label": "Nichushkin, V",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8477501
+        },
+        {
+          "round": 20,
+          "kind": "skater",
+          "label": "Makar, C",
+          "position": "D",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8480069
+        },
+        {
+          "round": 21,
+          "kind": "skater",
+          "label": "Ekholm, M",
+          "position": "D",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8475218
+        },
+        {
+          "round": 22,
+          "kind": "skater",
+          "label": "Burns, B",
+          "position": "D",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8470613
+        },
+        {
+          "round": 23,
+          "kind": "team",
+          "label": "Colorado Avalanche",
+          "teamAbbrev": "COL"
+        },
+        {
+          "round": 24,
+          "kind": "team",
+          "label": "Edmonton Oilers",
+          "teamAbbrev": "EDM"
+        }
       ]
     },
     {
@@ -231,30 +1351,190 @@
       "ownerName": "Greg Clease",
       "ownerAvatar": "gregclease.png",
       "picks": [
-        { "round": 1, "kind": "skater", "label": "Kucherov, N", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8476453 },
-        { "round": 2, "kind": "skater", "label": "Hagel, B", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8479542 },
-        { "round": 3, "kind": "skater", "label": "Jarvis, S", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8482093 },
-        { "round": 4, "kind": "skater", "label": "Tuch, A", "position": "F", "nhlTeamAbbrev": "BUF", "nhlPlayerId": 8477949 },
-        { "round": 5, "kind": "skater", "label": "Cirelli, A", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8478519 },
-        { "round": 6, "kind": "skater", "label": "Point, B", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8478010 },
-        { "round": 7, "kind": "skater", "label": "Hall, T", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8475791 },
-        { "round": 8, "kind": "skater", "label": "Raddysh, D", "position": "D", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8478178 },
-        { "round": 9, "kind": "skater", "label": "Miller, K", "position": "D", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8480817 },
-        { "round": 10, "kind": "skater", "label": "Nikishin, A", "position": "D", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8482100 },
-        { "round": 11, "kind": "team", "label": "Tampa Bay Lightning", "teamAbbrev": "TBL" },
-        { "round": 12, "kind": "team", "label": "Pittsburgh Penguins", "teamAbbrev": "PIT" },
-        { "round": 13, "kind": "skater", "label": "MacKinnon, N", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8477492 },
-        { "round": 14, "kind": "skater", "label": "Robertson, J", "position": "F", "nhlTeamAbbrev": "DAL", "nhlPlayerId": 8480027 },
-        { "round": 15, "kind": "skater", "label": "Johnston, W", "position": "F", "nhlTeamAbbrev": "DAL", "nhlPlayerId": 8482740 },
-        { "round": 16, "kind": "skater", "label": "Hyman, Z", "position": "F", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8475786 },
-        { "round": 17, "kind": "skater", "label": "Nelson, B", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8475754 },
-        { "round": 18, "kind": "skater", "label": "Lehkonen, A", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8477476 },
-        { "round": 19, "kind": "skater", "label": "Kadri, N", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8475172 },
-        { "round": 20, "kind": "skater", "label": "Makar, C", "position": "D", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8480069 },
-        { "round": 21, "kind": "skater", "label": "Ekholm, M", "position": "D", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8475218 },
-        { "round": 22, "kind": "skater", "label": "Burns, B", "position": "D", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8470613 },
-        { "round": 23, "kind": "team", "label": "Colorado Avalanche", "teamAbbrev": "COL" },
-        { "round": 24, "kind": "team", "label": "Edmonton Oilers", "teamAbbrev": "EDM" }
+        {
+          "round": 1,
+          "kind": "skater",
+          "label": "Kucherov, N",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8476453
+        },
+        {
+          "round": 2,
+          "kind": "skater",
+          "label": "Hagel, B",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8479542
+        },
+        {
+          "round": 3,
+          "kind": "skater",
+          "label": "Jarvis, S",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8482093
+        },
+        {
+          "round": 4,
+          "kind": "skater",
+          "label": "Tuch, A",
+          "position": "F",
+          "nhlTeamAbbrev": "BUF",
+          "nhlPlayerId": 8477949
+        },
+        {
+          "round": 5,
+          "kind": "skater",
+          "label": "Cirelli, A",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8478519
+        },
+        {
+          "round": 6,
+          "kind": "skater",
+          "label": "Point, B",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8478010
+        },
+        {
+          "round": 7,
+          "kind": "skater",
+          "label": "Hall, T",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8475791
+        },
+        {
+          "round": 8,
+          "kind": "skater",
+          "label": "Raddysh, D",
+          "position": "D",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8478178
+        },
+        {
+          "round": 9,
+          "kind": "skater",
+          "label": "Miller, K",
+          "position": "D",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8480817
+        },
+        {
+          "round": 10,
+          "kind": "skater",
+          "label": "Nikishin, A",
+          "position": "D",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8482100
+        },
+        {
+          "round": 11,
+          "kind": "team",
+          "label": "Tampa Bay Lightning",
+          "teamAbbrev": "TBL"
+        },
+        {
+          "round": 12,
+          "kind": "team",
+          "label": "Pittsburgh Penguins",
+          "teamAbbrev": "PIT"
+        },
+        {
+          "round": 13,
+          "kind": "skater",
+          "label": "MacKinnon, N",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8477492
+        },
+        {
+          "round": 14,
+          "kind": "skater",
+          "label": "Robertson, J",
+          "position": "F",
+          "nhlTeamAbbrev": "DAL",
+          "nhlPlayerId": 8480027
+        },
+        {
+          "round": 15,
+          "kind": "skater",
+          "label": "Johnston, W",
+          "position": "F",
+          "nhlTeamAbbrev": "DAL",
+          "nhlPlayerId": 8482740
+        },
+        {
+          "round": 16,
+          "kind": "skater",
+          "label": "Hyman, Z",
+          "position": "F",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8475786
+        },
+        {
+          "round": 17,
+          "kind": "skater",
+          "label": "Nelson, B",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8475754
+        },
+        {
+          "round": 18,
+          "kind": "skater",
+          "label": "Lehkonen, A",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8477476
+        },
+        {
+          "round": 19,
+          "kind": "skater",
+          "label": "Kadri, N",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8475172
+        },
+        {
+          "round": 20,
+          "kind": "skater",
+          "label": "Makar, C",
+          "position": "D",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8480069
+        },
+        {
+          "round": 21,
+          "kind": "skater",
+          "label": "Ekholm, M",
+          "position": "D",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8475218
+        },
+        {
+          "round": 22,
+          "kind": "skater",
+          "label": "Burns, B",
+          "position": "D",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8470613
+        },
+        {
+          "round": 23,
+          "kind": "team",
+          "label": "Colorado Avalanche",
+          "teamAbbrev": "COL"
+        },
+        {
+          "round": 24,
+          "kind": "team",
+          "label": "Edmonton Oilers",
+          "teamAbbrev": "EDM"
+        }
       ]
     },
     {
@@ -263,30 +1543,190 @@
       "ownerName": "Mason Wall",
       "ownerAvatar": "masonwall.png",
       "picks": [
-        { "round": 1, "kind": "skater", "label": "Suzuki, N", "position": "F", "nhlTeamAbbrev": "MTL", "nhlPlayerId": 8480018 },
-        { "round": 2, "kind": "skater", "label": "Thompson, T", "position": "F", "nhlTeamAbbrev": "BUF", "nhlPlayerId": 8479420 },
-        { "round": 3, "kind": "skater", "label": "Svechnikov, A", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8480830 },
-        { "round": 4, "kind": "skater", "label": "Tuch, A", "position": "F", "nhlTeamAbbrev": "BUF", "nhlPlayerId": 8477949 },
-        { "round": 5, "kind": "skater", "label": "Blake, J", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8482809 },
-        { "round": 6, "kind": "skater", "label": "Point, B", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8478010 },
-        { "round": 7, "kind": "skater", "label": "Hall, T", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8475791 },
-        { "round": 8, "kind": "skater", "label": "Hutson, L", "position": "D", "nhlTeamAbbrev": "MTL", "nhlPlayerId": 8483457 },
-        { "round": 9, "kind": "skater", "label": "Gostisbehere, S", "position": "D", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8476906 },
-        { "round": 10, "kind": "skater", "label": "Nikishin, A", "position": "D", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8482100 },
-        { "round": 11, "kind": "team", "label": "Montreal Canadiens", "teamAbbrev": "MTL" },
-        { "round": 12, "kind": "team", "label": "Pittsburgh Penguins", "teamAbbrev": "PIT" },
-        { "round": 13, "kind": "skater", "label": "McDavid, C", "position": "F", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8478402 },
-        { "round": 14, "kind": "skater", "label": "Kaprizov, K", "position": "F", "nhlTeamAbbrev": "MIN", "nhlPlayerId": 8478864 },
-        { "round": 15, "kind": "skater", "label": "Landeskog, G", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8476455 },
-        { "round": 16, "kind": "skater", "label": "Hyman, Z", "position": "F", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8475786 },
-        { "round": 17, "kind": "skater", "label": "Eriksson Ek, J", "position": "F", "nhlTeamAbbrev": "MIN", "nhlPlayerId": 8478493 },
-        { "round": 18, "kind": "skater", "label": "Lehkonen, A", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8477476 },
-        { "round": 19, "kind": "skater", "label": "Nichushkin, V", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8477501 },
-        { "round": 20, "kind": "skater", "label": "Makar, C", "position": "D", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8480069 },
-        { "round": 21, "kind": "skater", "label": "Ekholm, M", "position": "D", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8475218 },
-        { "round": 22, "kind": "skater", "label": "Burns, B", "position": "D", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8470613 },
-        { "round": 23, "kind": "team", "label": "Colorado Avalanche", "teamAbbrev": "COL" },
-        { "round": 24, "kind": "team", "label": "Edmonton Oilers", "teamAbbrev": "EDM" }
+        {
+          "round": 1,
+          "kind": "skater",
+          "label": "Suzuki, N",
+          "position": "F",
+          "nhlTeamAbbrev": "MTL",
+          "nhlPlayerId": 8480018
+        },
+        {
+          "round": 2,
+          "kind": "skater",
+          "label": "Thompson, T",
+          "position": "F",
+          "nhlTeamAbbrev": "BUF",
+          "nhlPlayerId": 8479420
+        },
+        {
+          "round": 3,
+          "kind": "skater",
+          "label": "Svechnikov, A",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8480830
+        },
+        {
+          "round": 4,
+          "kind": "skater",
+          "label": "Tuch, A",
+          "position": "F",
+          "nhlTeamAbbrev": "BUF",
+          "nhlPlayerId": 8477949
+        },
+        {
+          "round": 5,
+          "kind": "skater",
+          "label": "Blake, J",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8482809
+        },
+        {
+          "round": 6,
+          "kind": "skater",
+          "label": "Point, B",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8478010
+        },
+        {
+          "round": 7,
+          "kind": "skater",
+          "label": "Hall, T",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8475791
+        },
+        {
+          "round": 8,
+          "kind": "skater",
+          "label": "Hutson, L",
+          "position": "D",
+          "nhlTeamAbbrev": "MTL",
+          "nhlPlayerId": 8483457
+        },
+        {
+          "round": 9,
+          "kind": "skater",
+          "label": "Gostisbehere, S",
+          "position": "D",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8476906
+        },
+        {
+          "round": 10,
+          "kind": "skater",
+          "label": "Nikishin, A",
+          "position": "D",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8482100
+        },
+        {
+          "round": 11,
+          "kind": "team",
+          "label": "Montreal Canadiens",
+          "teamAbbrev": "MTL"
+        },
+        {
+          "round": 12,
+          "kind": "team",
+          "label": "Pittsburgh Penguins",
+          "teamAbbrev": "PIT"
+        },
+        {
+          "round": 13,
+          "kind": "skater",
+          "label": "McDavid, C",
+          "position": "F",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8478402
+        },
+        {
+          "round": 14,
+          "kind": "skater",
+          "label": "Kaprizov, K",
+          "position": "F",
+          "nhlTeamAbbrev": "MIN",
+          "nhlPlayerId": 8478864
+        },
+        {
+          "round": 15,
+          "kind": "skater",
+          "label": "Landeskog, G",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8476455
+        },
+        {
+          "round": 16,
+          "kind": "skater",
+          "label": "Hyman, Z",
+          "position": "F",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8475786
+        },
+        {
+          "round": 17,
+          "kind": "skater",
+          "label": "Eriksson Ek, J",
+          "position": "F",
+          "nhlTeamAbbrev": "MIN",
+          "nhlPlayerId": 8478493
+        },
+        {
+          "round": 18,
+          "kind": "skater",
+          "label": "Lehkonen, A",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8477476
+        },
+        {
+          "round": 19,
+          "kind": "skater",
+          "label": "Nichushkin, V",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8477501
+        },
+        {
+          "round": 20,
+          "kind": "skater",
+          "label": "Makar, C",
+          "position": "D",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8480069
+        },
+        {
+          "round": 21,
+          "kind": "skater",
+          "label": "Ekholm, M",
+          "position": "D",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8475218
+        },
+        {
+          "round": 22,
+          "kind": "skater",
+          "label": "Burns, B",
+          "position": "D",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8470613
+        },
+        {
+          "round": 23,
+          "kind": "team",
+          "label": "Colorado Avalanche",
+          "teamAbbrev": "COL"
+        },
+        {
+          "round": 24,
+          "kind": "team",
+          "label": "Edmonton Oilers",
+          "teamAbbrev": "EDM"
+        }
       ]
     },
     {
@@ -295,30 +1735,190 @@
       "ownerName": "Manjeet Nijjar",
       "ownerAvatar": "manjeetnijjar.png",
       "picks": [
-        { "round": 1, "kind": "skater", "label": "Suzuki, N", "position": "F", "nhlTeamAbbrev": "MTL", "nhlPlayerId": 8480018 },
-        { "round": 2, "kind": "skater", "label": "Aho, S", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8478427 },
-        { "round": 3, "kind": "skater", "label": "Jarvis, S", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8482093 },
-        { "round": 4, "kind": "skater", "label": "Tuch, A", "position": "F", "nhlTeamAbbrev": "BUF", "nhlPlayerId": 8477949 },
-        { "round": 5, "kind": "skater", "label": "Blake, J", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8482809 },
-        { "round": 6, "kind": "skater", "label": "Tippett, O", "position": "F", "nhlTeamAbbrev": "PHI", "nhlPlayerId": 8480015 },
-        { "round": 7, "kind": "skater", "label": "Michkov, M", "position": "F", "nhlTeamAbbrev": "PHI", "nhlPlayerId": 8484387 },
-        { "round": 8, "kind": "skater", "label": "Hutson, L", "position": "D", "nhlTeamAbbrev": "MTL", "nhlPlayerId": 8483457 },
-        { "round": 9, "kind": "skater", "label": "Matheson, M", "position": "D", "nhlTeamAbbrev": "MTL", "nhlPlayerId": 8476875 },
-        { "round": 10, "kind": "skater", "label": "Nikishin, A", "position": "D", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8482100 },
-        { "round": 11, "kind": "team", "label": "Montreal Canadiens", "teamAbbrev": "MTL" },
-        { "round": 12, "kind": "team", "label": "Philadelphia Flyers", "teamAbbrev": "PHI" },
-        { "round": 13, "kind": "skater", "label": "McDavid, C", "position": "F", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8478402 },
-        { "round": 14, "kind": "skater", "label": "Robertson, J", "position": "F", "nhlTeamAbbrev": "DAL", "nhlPlayerId": 8480027 },
-        { "round": 15, "kind": "skater", "label": "Johnston, W", "position": "F", "nhlTeamAbbrev": "DAL", "nhlPlayerId": 8482740 },
-        { "round": 16, "kind": "skater", "label": "Hyman, Z", "position": "F", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8475786 },
-        { "round": 17, "kind": "skater", "label": "Nugent-Hopkins, R", "position": "F", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8476454 },
-        { "round": 18, "kind": "skater", "label": "Lehkonen, A", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8477476 },
-        { "round": 19, "kind": "skater", "label": "Kadri, N", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8475172 },
-        { "round": 20, "kind": "skater", "label": "Bouchard, E", "position": "D", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8480803 },
-        { "round": 21, "kind": "skater", "label": "Ekholm, M", "position": "D", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8475218 },
-        { "round": 22, "kind": "skater", "label": "Harley, T", "position": "D", "nhlTeamAbbrev": "DAL", "nhlPlayerId": 8481581 },
-        { "round": 23, "kind": "team", "label": "Dallas Stars", "teamAbbrev": "DAL" },
-        { "round": 24, "kind": "team", "label": "Edmonton Oilers", "teamAbbrev": "EDM" }
+        {
+          "round": 1,
+          "kind": "skater",
+          "label": "Suzuki, N",
+          "position": "F",
+          "nhlTeamAbbrev": "MTL",
+          "nhlPlayerId": 8480018
+        },
+        {
+          "round": 2,
+          "kind": "skater",
+          "label": "Aho, S",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8478427
+        },
+        {
+          "round": 3,
+          "kind": "skater",
+          "label": "Jarvis, S",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8482093
+        },
+        {
+          "round": 4,
+          "kind": "skater",
+          "label": "Tuch, A",
+          "position": "F",
+          "nhlTeamAbbrev": "BUF",
+          "nhlPlayerId": 8477949
+        },
+        {
+          "round": 5,
+          "kind": "skater",
+          "label": "Blake, J",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8482809
+        },
+        {
+          "round": 6,
+          "kind": "skater",
+          "label": "Tippett, O",
+          "position": "F",
+          "nhlTeamAbbrev": "PHI",
+          "nhlPlayerId": 8480015
+        },
+        {
+          "round": 7,
+          "kind": "skater",
+          "label": "Michkov, M",
+          "position": "F",
+          "nhlTeamAbbrev": "PHI",
+          "nhlPlayerId": 8484387
+        },
+        {
+          "round": 8,
+          "kind": "skater",
+          "label": "Hutson, L",
+          "position": "D",
+          "nhlTeamAbbrev": "MTL",
+          "nhlPlayerId": 8483457
+        },
+        {
+          "round": 9,
+          "kind": "skater",
+          "label": "Matheson, M",
+          "position": "D",
+          "nhlTeamAbbrev": "MTL",
+          "nhlPlayerId": 8476875
+        },
+        {
+          "round": 10,
+          "kind": "skater",
+          "label": "Nikishin, A",
+          "position": "D",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8482100
+        },
+        {
+          "round": 11,
+          "kind": "team",
+          "label": "Montreal Canadiens",
+          "teamAbbrev": "MTL"
+        },
+        {
+          "round": 12,
+          "kind": "team",
+          "label": "Philadelphia Flyers",
+          "teamAbbrev": "PHI"
+        },
+        {
+          "round": 13,
+          "kind": "skater",
+          "label": "McDavid, C",
+          "position": "F",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8478402
+        },
+        {
+          "round": 14,
+          "kind": "skater",
+          "label": "Robertson, J",
+          "position": "F",
+          "nhlTeamAbbrev": "DAL",
+          "nhlPlayerId": 8480027
+        },
+        {
+          "round": 15,
+          "kind": "skater",
+          "label": "Johnston, W",
+          "position": "F",
+          "nhlTeamAbbrev": "DAL",
+          "nhlPlayerId": 8482740
+        },
+        {
+          "round": 16,
+          "kind": "skater",
+          "label": "Hyman, Z",
+          "position": "F",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8475786
+        },
+        {
+          "round": 17,
+          "kind": "skater",
+          "label": "Nugent-Hopkins, R",
+          "position": "F",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8476454
+        },
+        {
+          "round": 18,
+          "kind": "skater",
+          "label": "Lehkonen, A",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8477476
+        },
+        {
+          "round": 19,
+          "kind": "skater",
+          "label": "Kadri, N",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8475172
+        },
+        {
+          "round": 20,
+          "kind": "skater",
+          "label": "Bouchard, E",
+          "position": "D",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8480803
+        },
+        {
+          "round": 21,
+          "kind": "skater",
+          "label": "Ekholm, M",
+          "position": "D",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8475218
+        },
+        {
+          "round": 22,
+          "kind": "skater",
+          "label": "Harley, T",
+          "position": "D",
+          "nhlTeamAbbrev": "DAL",
+          "nhlPlayerId": 8481581
+        },
+        {
+          "round": 23,
+          "kind": "team",
+          "label": "Dallas Stars",
+          "teamAbbrev": "DAL"
+        },
+        {
+          "round": 24,
+          "kind": "team",
+          "label": "Edmonton Oilers",
+          "teamAbbrev": "EDM"
+        }
       ]
     },
     {
@@ -327,30 +1927,190 @@
       "ownerName": "Sam Hughes",
       "ownerAvatar": "samhughes.png",
       "picks": [
-        { "round": 1, "kind": "skater", "label": "Guentzel, J", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8477404 },
-        { "round": 2, "kind": "skater", "label": "Hagel, B", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8479542 },
-        { "round": 3, "kind": "skater", "label": "Ehlers, N", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8477940 },
-        { "round": 4, "kind": "skater", "label": "Mantha, A", "position": "F", "nhlTeamAbbrev": "PIT", "nhlPlayerId": 8477511 },
-        { "round": 5, "kind": "skater", "label": "Blake, J", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8482809 },
-        { "round": 6, "kind": "skater", "label": "Point, B", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8478010 },
-        { "round": 7, "kind": "skater", "label": "Hall, T", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8475791 },
-        { "round": 8, "kind": "skater", "label": "Karlsson, E", "position": "D", "nhlTeamAbbrev": "PIT", "nhlPlayerId": 8474578 },
-        { "round": 9, "kind": "skater", "label": "Byram, B", "position": "D", "nhlTeamAbbrev": "BUF", "nhlPlayerId": 8481524 },
-        { "round": 10, "kind": "skater", "label": "Chabot, T", "position": "D", "nhlTeamAbbrev": "OTT", "nhlPlayerId": 8478469 },
-        { "round": 11, "kind": "team", "label": "Tampa Bay Lightning", "teamAbbrev": "TBL" },
-        { "round": 12, "kind": "team", "label": "Pittsburgh Penguins", "teamAbbrev": "PIT" },
-        { "round": 13, "kind": "skater", "label": "MacKinnon, N", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8477492 },
-        { "round": 14, "kind": "skater", "label": "Robertson, J", "position": "F", "nhlTeamAbbrev": "DAL", "nhlPlayerId": 8480027 },
-        { "round": 15, "kind": "skater", "label": "Johnston, W", "position": "F", "nhlTeamAbbrev": "DAL", "nhlPlayerId": 8482740 },
-        { "round": 16, "kind": "skater", "label": "Guenther, D", "position": "F", "nhlTeamAbbrev": "UTA", "nhlPlayerId": 8482699 },
-        { "round": 17, "kind": "skater", "label": "Nugent-Hopkins, R", "position": "F", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8476454 },
-        { "round": 18, "kind": "skater", "label": "Barbashev, I", "position": "F", "nhlTeamAbbrev": "VGK", "nhlPlayerId": 8477964 },
-        { "round": 19, "kind": "skater", "label": "Nichushkin, V", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8477501 },
-        { "round": 20, "kind": "skater", "label": "Makar, C", "position": "D", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8480069 },
-        { "round": 21, "kind": "skater", "label": "Andersson, R", "position": "D", "nhlTeamAbbrev": "VGK", "nhlPlayerId": 8478397 },
-        { "round": 22, "kind": "skater", "label": "Burns, B", "position": "D", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8470613 },
-        { "round": 23, "kind": "team", "label": "Colorado Avalanche", "teamAbbrev": "COL" },
-        { "round": 24, "kind": "team", "label": "Edmonton Oilers", "teamAbbrev": "EDM" }
+        {
+          "round": 1,
+          "kind": "skater",
+          "label": "Guentzel, J",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8477404
+        },
+        {
+          "round": 2,
+          "kind": "skater",
+          "label": "Hagel, B",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8479542
+        },
+        {
+          "round": 3,
+          "kind": "skater",
+          "label": "Ehlers, N",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8477940
+        },
+        {
+          "round": 4,
+          "kind": "skater",
+          "label": "Mantha, A",
+          "position": "F",
+          "nhlTeamAbbrev": "PIT",
+          "nhlPlayerId": 8477511
+        },
+        {
+          "round": 5,
+          "kind": "skater",
+          "label": "Blake, J",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8482809
+        },
+        {
+          "round": 6,
+          "kind": "skater",
+          "label": "Point, B",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8478010
+        },
+        {
+          "round": 7,
+          "kind": "skater",
+          "label": "Hall, T",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8475791
+        },
+        {
+          "round": 8,
+          "kind": "skater",
+          "label": "Karlsson, E",
+          "position": "D",
+          "nhlTeamAbbrev": "PIT",
+          "nhlPlayerId": 8474578
+        },
+        {
+          "round": 9,
+          "kind": "skater",
+          "label": "Byram, B",
+          "position": "D",
+          "nhlTeamAbbrev": "BUF",
+          "nhlPlayerId": 8481524
+        },
+        {
+          "round": 10,
+          "kind": "skater",
+          "label": "Chabot, T",
+          "position": "D",
+          "nhlTeamAbbrev": "OTT",
+          "nhlPlayerId": 8478469
+        },
+        {
+          "round": 11,
+          "kind": "team",
+          "label": "Tampa Bay Lightning",
+          "teamAbbrev": "TBL"
+        },
+        {
+          "round": 12,
+          "kind": "team",
+          "label": "Pittsburgh Penguins",
+          "teamAbbrev": "PIT"
+        },
+        {
+          "round": 13,
+          "kind": "skater",
+          "label": "MacKinnon, N",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8477492
+        },
+        {
+          "round": 14,
+          "kind": "skater",
+          "label": "Robertson, J",
+          "position": "F",
+          "nhlTeamAbbrev": "DAL",
+          "nhlPlayerId": 8480027
+        },
+        {
+          "round": 15,
+          "kind": "skater",
+          "label": "Johnston, W",
+          "position": "F",
+          "nhlTeamAbbrev": "DAL",
+          "nhlPlayerId": 8482740
+        },
+        {
+          "round": 16,
+          "kind": "skater",
+          "label": "Guenther, D",
+          "position": "F",
+          "nhlTeamAbbrev": "UTA",
+          "nhlPlayerId": 8482699
+        },
+        {
+          "round": 17,
+          "kind": "skater",
+          "label": "Nugent-Hopkins, R",
+          "position": "F",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8476454
+        },
+        {
+          "round": 18,
+          "kind": "skater",
+          "label": "Barbashev, I",
+          "position": "F",
+          "nhlTeamAbbrev": "VGK",
+          "nhlPlayerId": 8477964
+        },
+        {
+          "round": 19,
+          "kind": "skater",
+          "label": "Nichushkin, V",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8477501
+        },
+        {
+          "round": 20,
+          "kind": "skater",
+          "label": "Makar, C",
+          "position": "D",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8480069
+        },
+        {
+          "round": 21,
+          "kind": "skater",
+          "label": "Andersson, R",
+          "position": "D",
+          "nhlTeamAbbrev": "VGK",
+          "nhlPlayerId": 8478397
+        },
+        {
+          "round": 22,
+          "kind": "skater",
+          "label": "Burns, B",
+          "position": "D",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8470613
+        },
+        {
+          "round": 23,
+          "kind": "team",
+          "label": "Colorado Avalanche",
+          "teamAbbrev": "COL"
+        },
+        {
+          "round": 24,
+          "kind": "team",
+          "label": "Edmonton Oilers",
+          "teamAbbrev": "EDM"
+        }
       ]
     },
     {
@@ -359,30 +2119,190 @@
       "ownerName": "Simon Vreeswijk",
       "ownerAvatar": "simonvreeswijk.png",
       "picks": [
-        { "round": 1, "kind": "skater", "label": "Kucherov, N", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8476453 },
-        { "round": 2, "kind": "skater", "label": "Aho, S", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8478427 },
-        { "round": 3, "kind": "skater", "label": "Svechnikov, A", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8480830 },
-        { "round": 4, "kind": "skater", "label": "Mantha, A", "position": "F", "nhlTeamAbbrev": "PIT", "nhlPlayerId": 8477511 },
-        { "round": 5, "kind": "skater", "label": "Blake, J", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8482809 },
-        { "round": 6, "kind": "skater", "label": "Point, B", "position": "F", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8478010 },
-        { "round": 7, "kind": "skater", "label": "Hall, T", "position": "F", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8475791 },
-        { "round": 8, "kind": "skater", "label": "Raddysh, D", "position": "D", "nhlTeamAbbrev": "TBL", "nhlPlayerId": 8478178 },
-        { "round": 9, "kind": "skater", "label": "Miller, K", "position": "D", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8480817 },
-        { "round": 10, "kind": "skater", "label": "Nikishin, A", "position": "D", "nhlTeamAbbrev": "CAR", "nhlPlayerId": 8482100 },
-        { "round": 11, "kind": "team", "label": "Carolina Hurricanes", "teamAbbrev": "CAR" },
-        { "round": 12, "kind": "team", "label": "Pittsburgh Penguins", "teamAbbrev": "PIT" },
-        { "round": 13, "kind": "skater", "label": "MacKinnon, N", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8477492 },
-        { "round": 14, "kind": "skater", "label": "Eichel, J", "position": "F", "nhlTeamAbbrev": "VGK", "nhlPlayerId": 8478403 },
-        { "round": 15, "kind": "skater", "label": "Marner, M", "position": "F", "nhlTeamAbbrev": "VGK", "nhlPlayerId": 8478483 },
-        { "round": 16, "kind": "skater", "label": "Hyman, Z", "position": "F", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8475786 },
-        { "round": 17, "kind": "skater", "label": "Nelson, B", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8475754 },
-        { "round": 18, "kind": "skater", "label": "Lehkonen, A", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8477476 },
-        { "round": 19, "kind": "skater", "label": "Nichushkin, V", "position": "F", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8477501 },
-        { "round": 20, "kind": "skater", "label": "Makar, C", "position": "D", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8480069 },
-        { "round": 21, "kind": "skater", "label": "Ekholm, M", "position": "D", "nhlTeamAbbrev": "EDM", "nhlPlayerId": 8475218 },
-        { "round": 22, "kind": "skater", "label": "Burns, B", "position": "D", "nhlTeamAbbrev": "COL", "nhlPlayerId": 8470613 },
-        { "round": 23, "kind": "team", "label": "Colorado Avalanche", "teamAbbrev": "COL" },
-        { "round": 24, "kind": "team", "label": "Edmonton Oilers", "teamAbbrev": "EDM" }
+        {
+          "round": 1,
+          "kind": "skater",
+          "label": "Kucherov, N",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8476453
+        },
+        {
+          "round": 2,
+          "kind": "skater",
+          "label": "Aho, S",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8478427
+        },
+        {
+          "round": 3,
+          "kind": "skater",
+          "label": "Svechnikov, A",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8480830
+        },
+        {
+          "round": 4,
+          "kind": "skater",
+          "label": "Mantha, A",
+          "position": "F",
+          "nhlTeamAbbrev": "PIT",
+          "nhlPlayerId": 8477511
+        },
+        {
+          "round": 5,
+          "kind": "skater",
+          "label": "Blake, J",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8482809
+        },
+        {
+          "round": 6,
+          "kind": "skater",
+          "label": "Point, B",
+          "position": "F",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8478010
+        },
+        {
+          "round": 7,
+          "kind": "skater",
+          "label": "Hall, T",
+          "position": "F",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8475791
+        },
+        {
+          "round": 8,
+          "kind": "skater",
+          "label": "Raddysh, D",
+          "position": "D",
+          "nhlTeamAbbrev": "TBL",
+          "nhlPlayerId": 8478178
+        },
+        {
+          "round": 9,
+          "kind": "skater",
+          "label": "Miller, K",
+          "position": "D",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8480817
+        },
+        {
+          "round": 10,
+          "kind": "skater",
+          "label": "Nikishin, A",
+          "position": "D",
+          "nhlTeamAbbrev": "CAR",
+          "nhlPlayerId": 8482100
+        },
+        {
+          "round": 11,
+          "kind": "team",
+          "label": "Carolina Hurricanes",
+          "teamAbbrev": "CAR"
+        },
+        {
+          "round": 12,
+          "kind": "team",
+          "label": "Pittsburgh Penguins",
+          "teamAbbrev": "PIT"
+        },
+        {
+          "round": 13,
+          "kind": "skater",
+          "label": "MacKinnon, N",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8477492
+        },
+        {
+          "round": 14,
+          "kind": "skater",
+          "label": "Eichel, J",
+          "position": "F",
+          "nhlTeamAbbrev": "VGK",
+          "nhlPlayerId": 8478403
+        },
+        {
+          "round": 15,
+          "kind": "skater",
+          "label": "Marner, M",
+          "position": "F",
+          "nhlTeamAbbrev": "VGK",
+          "nhlPlayerId": 8478483
+        },
+        {
+          "round": 16,
+          "kind": "skater",
+          "label": "Hyman, Z",
+          "position": "F",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8475786
+        },
+        {
+          "round": 17,
+          "kind": "skater",
+          "label": "Nelson, B",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8475754
+        },
+        {
+          "round": 18,
+          "kind": "skater",
+          "label": "Lehkonen, A",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8477476
+        },
+        {
+          "round": 19,
+          "kind": "skater",
+          "label": "Nichushkin, V",
+          "position": "F",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8477501
+        },
+        {
+          "round": 20,
+          "kind": "skater",
+          "label": "Makar, C",
+          "position": "D",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8480069
+        },
+        {
+          "round": 21,
+          "kind": "skater",
+          "label": "Ekholm, M",
+          "position": "D",
+          "nhlTeamAbbrev": "EDM",
+          "nhlPlayerId": 8475218
+        },
+        {
+          "round": 22,
+          "kind": "skater",
+          "label": "Burns, B",
+          "position": "D",
+          "nhlTeamAbbrev": "COL",
+          "nhlPlayerId": 8470613
+        },
+        {
+          "round": 23,
+          "kind": "team",
+          "label": "Colorado Avalanche",
+          "teamAbbrev": "COL"
+        },
+        {
+          "round": 24,
+          "kind": "team",
+          "label": "Edmonton Oilers",
+          "teamAbbrev": "EDM"
+        }
       ]
     }
   ]

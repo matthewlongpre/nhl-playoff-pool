@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { NhleTeamLogoImage } from "@/components/nhle-team-logo";
+import { NhlTeamLogoEliminatedWrap } from "@/components/nhl-team-logo-eliminated-wrap";
 import type { PickShareEntry, RoundPickShare } from "@/lib/pool/box-pick-counts";
 import { nhlPlayerHeadshotUrl, nhlTeamLogoLightSvgUrl } from "@/lib/nhl/media";
 
@@ -8,6 +9,8 @@ type PoolBoxPickShareProps = {
 };
 
 function BoxPickVisual({ e }: { e: PickShareEntry }) {
+  const eliminated = e.eliminated ?? false;
+
   if (e.kind === "team" && e.teamAbbrev) {
     const abbrev = e.teamAbbrev.toUpperCase();
     return (
@@ -15,13 +18,15 @@ function BoxPickVisual({ e }: { e: PickShareEntry }) {
         className="relative h-9 w-9 shrink-0 overflow-hidden rounded-lg bg-white p-1 ring-1 ring-zinc-900/10 dark:bg-zinc-900 dark:ring-white/10"
         title="Team pick"
       >
-        <NhleTeamLogoImage
-          src={nhlTeamLogoLightSvgUrl(abbrev)}
-          alt=""
-          width={28}
-          height={28}
-          className="h-full w-full"
-        />
+        <NhlTeamLogoEliminatedWrap eliminated={eliminated} className="h-full w-full">
+          <NhleTeamLogoImage
+            src={nhlTeamLogoLightSvgUrl(abbrev)}
+            alt=""
+            width={28}
+            height={28}
+            className="h-full w-full"
+          />
+        </NhlTeamLogoEliminatedWrap>
       </div>
     );
   }
@@ -31,7 +36,7 @@ function BoxPickVisual({ e }: { e: PickShareEntry }) {
     if (typeof id === "number" && id > 0) {
       return (
         <div
-          className="relative h-9 w-9 shrink-0 overflow-hidden rounded-full bg-zinc-200/80 ring-1 ring-zinc-900/10 dark:bg-zinc-800 dark:ring-white/10"
+          className={`relative h-9 w-9 shrink-0 overflow-hidden rounded-full bg-zinc-200/80 ring-1 ring-zinc-900/10 dark:bg-zinc-800 dark:ring-white/10${eliminated ? " grayscale opacity-45" : ""}`}
           title={e.roleLabel === "D" ? "Defence" : "Forward"}
         >
           <Image
@@ -46,7 +51,7 @@ function BoxPickVisual({ e }: { e: PickShareEntry }) {
     }
     return (
       <span
-        className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-zinc-100 text-[0.65rem] font-bold uppercase tracking-wide text-zinc-600 ring-1 ring-zinc-900/10 dark:bg-zinc-800 dark:text-zinc-400 dark:ring-white/10"
+        className={`inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-zinc-100 text-[0.65rem] font-bold uppercase tracking-wide text-zinc-600 ring-1 ring-zinc-900/10 dark:bg-zinc-800 dark:text-zinc-400 dark:ring-white/10${eliminated ? " grayscale opacity-45" : ""}`}
         title={e.roleLabel === "D" ? "Defence" : "Forward"}
       >
         {e.roleLabel}
@@ -99,7 +104,9 @@ export function PoolBoxPickShare({ byRound }: PoolBoxPickShareProps) {
                         className={`truncate font-medium ${
                           e.count === 0
                             ? "text-zinc-500 dark:text-zinc-500"
-                            : "text-zinc-900 dark:text-zinc-100"
+                            : e.eliminated
+                              ? "text-zinc-400 dark:text-zinc-500"
+                              : "text-zinc-900 dark:text-zinc-100"
                         }`}
                       >
                         {e.label}

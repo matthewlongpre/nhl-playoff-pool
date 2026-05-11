@@ -1,7 +1,9 @@
 import type { BoxSlateOption } from "@/lib/pool/box-slates-schema";
 import type { PoolBoxSlatesFile } from "@/lib/pool/box-slates-schema";
 import { loadPoolBoxSlates } from "@/lib/pool/load-box-slates";
+import type { NhlTeamPlayoffStatus } from "@/lib/nhl/schemas";
 import type { PoolPick, PoolRostersFile } from "@/lib/pool/roster-schema";
+import { isPickTeamStillActive } from "@/lib/pool/remaining-picks-by-team";
 import { pickSlateKey, slateOptionToIdentityKey } from "@/lib/pool/slate-option-key";
 
 export type PickShareEntry = {
@@ -16,6 +18,8 @@ export type PickShareEntry = {
   nhlPlayerId?: number | null;
   /** Roster pick does not match any row on the official sheet (label/team mismatch). */
   notOnSlate?: boolean;
+  /** NHL team is eliminated from the playoffs. */
+  eliminated?: boolean;
 };
 
 export type RoundPickShare = {
@@ -39,6 +43,7 @@ function optionToEntry(
   title: string,
   count: number,
   nhlPlayerIdFromRosters: number | null | undefined,
+  statusByAbbrev: ReadonlyMap<string, NhlTeamPlayoffStatus>,
 ): PickShareEntry {
   if (opt.kind === "team") {
     return {
@@ -47,6 +52,7 @@ function optionToEntry(
       teamAbbrev: opt.teamAbbrev,
       count,
       roleLabel: "Team",
+      eliminated: !isPickTeamStillActive(opt.teamAbbrev, statusByAbbrev),
     };
   }
   return {
@@ -56,10 +62,15 @@ function optionToEntry(
     roleLabel: roleLabelFromSlateTitle(title, opt),
     nhlTeamAbbrev: opt.nhlTeamAbbrev,
     nhlPlayerId: nhlPlayerIdFromRosters ?? null,
+    eliminated: !isPickTeamStillActive(opt.nhlTeamAbbrev, statusByAbbrev),
   };
 }
 
-function pickToOverflowEntry(pick: PoolPick, count: number): PickShareEntry {
+function pickToOverflowEntry(
+  pick: PoolPick,
+  count: number,
+  statusByAbbrev: ReadonlyMap<string, NhlTeamPlayoffStatus>,
+): PickShareEntry {
   if (pick.kind === "team") {
     return {
       kind: "team",
@@ -68,6 +79,7 @@ function pickToOverflowEntry(pick: PoolPick, count: number): PickShareEntry {
       count,
       roleLabel: "Team",
       notOnSlate: true,
+      eliminated: !isPickTeamStillActive(pick.teamAbbrev, statusByAbbrev),
     };
   }
   return {
@@ -78,6 +90,7 @@ function pickToOverflowEntry(pick: PoolPick, count: number): PickShareEntry {
     nhlTeamAbbrev: pick.nhlTeamAbbrev,
     nhlPlayerId: pick.nhlPlayerId ?? null,
     notOnSlate: true,
+    eliminated: !isPickTeamStillActive(pick.nhlTeamAbbrev, statusByAbbrev),
   };
 }
 
@@ -104,6 +117,7 @@ function buildGlobalSkaterKeyToPlayerId(
 export function buildBoxPickShareByRound(
   rosters: PoolRostersFile,
   slates: PoolBoxSlatesFile = loadPoolBoxSlates(),
+  statusByAbbrev: ReadonlyMap<string, NhlTeamPlayoffStatus> = new Map(),
 ): RoundPickShare[] {
   const totalPoolTeams = rosters.teams.length;
   const skaterKeyToPlayerId = buildGlobalSkaterKeyToPlayerId(rosters);
@@ -135,6 +149,7 @@ export function buildBoxPickShareByRound(
         opt.kind === "skater"
           ? skaterKeyToPlayerId.get(slateOptionToIdentityKey(opt)) ?? null
           : undefined,
+        statusByAbbrev,
       ),
     );
 
@@ -144,7 +159,7 @@ export function buildBoxPickShareByRound(
       for (const k of overflowKeys) {
         const pick = keyToSamplePick.get(k);
         if (!pick) continue;
-        entries.push(pickToOverflowEntry(pick, counts.get(k) ?? 0));
+        entries.push(pickToOverflowEntry(pick, counts.get(k) ?? 0, statusByAbbrev));
       }
     }
 
