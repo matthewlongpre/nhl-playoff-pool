@@ -9,5 +9,5 @@ export default async function StandingsPicksRedirectPage({
   const sp = await searchParams;
   const base =
     sp.simulateRankMovement === "1" ? "/?simulateRankMovement=1" : "/";
-  redirect(`${base}#team-mix`);
+  redirect(base);
 }
