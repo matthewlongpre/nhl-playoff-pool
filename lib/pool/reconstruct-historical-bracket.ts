@@ -56,6 +56,9 @@ export async function reconstructHistoricalBracket(
       for (const game of games) {
         const s = game.seriesStatus;
         if (!s || !s.topSeedTeamAbbrev || !s.bottomSeedTeamAbbrev) continue;
+        // Scoreboard payloads contain a week-window of games; ignore any game
+        // played after `date` so a later re-fetch doesn't leak future state.
+        if (game.gameDate > date) continue;
         const totalWins = s.topSeedWins + s.bottomSeedWins;
         // Key by team pair — seriesAbbrev is non-unique (all R1 series share "R1", etc.)
         const key = `${s.topSeedTeamAbbrev.toUpperCase()}:${s.bottomSeedTeamAbbrev.toUpperCase()}`;
