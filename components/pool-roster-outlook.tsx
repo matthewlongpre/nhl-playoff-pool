@@ -33,6 +33,12 @@ type ProjectionRow = {
     teamAbbrevs: [string, string];
     pickLabels: string[];
   }>;
+  futureCollisions: Array<{
+    conference: "east" | "west" | "final";
+    teamAbbrevs: [string, string];
+    pickLabels: string[];
+    penalty: number;
+  }>;
   remainingSkaters: number;
   totalSkaters: number;
   remainingTeams: number;
@@ -513,6 +519,7 @@ function OutlookRow({
     runwayStackedBarWidths(row);
 
   const collisionCount = row.collisions.length;
+  const futureCollisionCount = row.futureCollisions?.length ?? 0;
   const teamWinPicksDescription =
     row.teamWinPicks.length > 0
       ? ` Team-win clubs: ${row.teamWinPicks
@@ -729,12 +736,27 @@ function OutlookRow({
                   +{formatOneDecimal(row.bestPick.ev)}
                 </span>
               ) : null}
-              {collisionCount > 0 ? (
-                <span className="inline-flex w-fit shrink-0 items-center whitespace-nowrap rounded-full bg-amber-100 px-2 py-0.5 text-[0.6rem] font-semibold text-amber-800 ring-1 ring-amber-200/80 dark:bg-amber-950/40 dark:text-amber-200 dark:ring-amber-900/50 sm:ml-auto">
-                  {`${collisionCount} face off · ${row.collisions
-                    .map((c) => `R${c.round}`)
-                    .filter((v, i, arr) => arr.indexOf(v) === i)
-                    .join(", ")}`}
+              {(collisionCount > 0 || futureCollisionCount > 0) ? (
+                <span className="inline-flex shrink-0 items-center gap-1 sm:ml-auto">
+                  {collisionCount > 0 ? (
+                    <span
+                      className="inline-flex w-fit items-center whitespace-nowrap rounded-full bg-amber-100 px-2 py-0.5 text-[0.6rem] font-semibold text-amber-800 ring-1 ring-amber-200/80 dark:bg-amber-950/40 dark:text-amber-200 dark:ring-amber-900/50"
+                      title={row.collisions.map((c) => `${c.teamAbbrevs.join(" vs ")} (R${c.round}): ${c.pickLabels.join(", ")}`).join(" · ")}
+                    >
+                      {`${collisionCount} collision · ${row.collisions
+                        .map((c) => `R${c.round}`)
+                        .filter((v, i, arr) => arr.indexOf(v) === i)
+                        .join(", ")}`}
+                    </span>
+                  ) : null}
+                  {futureCollisionCount > 0 ? (
+                    <span
+                      className="inline-flex w-fit items-center whitespace-nowrap rounded-full bg-orange-100 px-2 py-0.5 text-[0.6rem] font-semibold text-orange-800 ring-1 ring-orange-200/80 dark:bg-orange-950/40 dark:text-orange-200 dark:ring-orange-900/50"
+                      title={(row.futureCollisions ?? []).map((c) => `${c.teamAbbrevs.join(" vs ")} (${c.conference}): ${c.pickLabels.join(", ")}`).join(" · ")}
+                    >
+                      {`${futureCollisionCount} future collision${futureCollisionCount === 1 ? "" : "s"}`}
+                    </span>
+                  ) : null}
                 </span>
               ) : null}
             </div>

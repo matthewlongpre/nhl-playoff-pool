@@ -42,6 +42,7 @@ export type ProjectionRowOut = {
   projectedFinal: number;
   bestPick: PoolTeamProjection["bestPick"];
   collisions: PoolTeamProjection["collisions"];
+  futureCollisions: PoolTeamProjection["futureCollisions"];
   remainingSkaters: number;
   totalSkaters: number;
   remainingTeams: number;
@@ -53,7 +54,7 @@ export type ProjectionResponsePayload = {
   asOfDate: string;
   rows: ProjectionRowOut[];
   meta: {
-    perGameProbModel: "baseline-v1";
+    perGameProbModel: "series-lead-v1";
     baselineP: number;
     ppgPriorWeight: number;
     bracketAvailable: boolean;
@@ -201,7 +202,7 @@ export async function buildProjectionPayload(
 
   const maps = bracket
     ? buildTeamProjectionMaps(bracket, statusByAbbrev)
-    : { expectedGamesByAbbrev: new Map(), expectedWinsByAbbrev: new Map() };
+    : { expectedGamesByAbbrev: new Map(), expectedWinsByAbbrev: new Map(), advanceProbByAbbrev: new Map() };
 
   const remainingByTeamId = buildRemainingPicksByTeamId(rosters, statusByAbbrev);
 
@@ -254,6 +255,7 @@ export async function buildProjectionPayload(
       projectedFinal: p.projectedFinal,
       bestPick: p.bestPick,
       collisions: p.collisions,
+      futureCollisions: p.futureCollisions,
       remainingSkaters: remaining?.remainingSkaters ?? 0,
       totalSkaters: remaining?.totalSkaters ?? 0,
       remainingTeams: remaining?.remainingTeams ?? 0,
@@ -266,7 +268,7 @@ export async function buildProjectionPayload(
     asOfDate: leaderboard.asOfDate,
     rows,
     meta: {
-      perGameProbModel: "baseline-v1",
+      perGameProbModel: "series-lead-v1",
       baselineP,
       ppgPriorWeight: priorWeight,
       bracketAvailable,
