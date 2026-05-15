@@ -546,7 +546,7 @@ export function PlayoffBracketHomeSection() {
 
   return (
     <section
-      className="mb-10 flex flex-col gap-3 sm:mb-14"
+      className="mb-10 flex flex-col gap-3 sm:mb-14 [overflow-anchor:none]"
       aria-labelledby="pool-home-bracket-heading"
     >
       <h2
