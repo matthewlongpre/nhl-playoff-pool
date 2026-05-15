@@ -57,9 +57,11 @@ export async function reconstructHistoricalBracket(
         const s = game.seriesStatus;
         if (!s || !s.topSeedTeamAbbrev || !s.bottomSeedTeamAbbrev) continue;
         const totalWins = s.topSeedWins + s.bottomSeedWins;
-        const existing = seriesMap.get(s.seriesAbbrev);
+        // Key by team pair — seriesAbbrev is non-unique (all R1 series share "R1", etc.)
+        const key = `${s.topSeedTeamAbbrev.toUpperCase()}:${s.bottomSeedTeamAbbrev.toUpperCase()}`;
+        const existing = seriesMap.get(key);
         if (!existing || totalWins > existing.totalWins) {
-          seriesMap.set(s.seriesAbbrev, {
+          seriesMap.set(key, {
             seriesAbbrev: s.seriesAbbrev,
             round: s.round,
             topSeedTeamAbbrev: s.topSeedTeamAbbrev.toUpperCase(),
