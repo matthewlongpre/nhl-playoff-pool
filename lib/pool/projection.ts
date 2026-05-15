@@ -1,3 +1,7 @@
+import {
+  conferenceForSeries,
+  type BracketConferenceBucket,
+} from "@/lib/nhl/playoff-bracket-layout";
 import type {
   NhlTeamPlayoffStatus,
   PlayoffBracketResponse,
@@ -27,12 +31,24 @@ export type ProjectionConfig = {
   ppgPriorWeight?: number;
   /** Cap on bracket walk depth. Default 4 (full Stanley Cup playoffs). */
   maxRound?: number;
+  /**
+   * Bayesian shrinkage weight (in games) for series-lead per-game probability.
+   * Higher = smaller adjustment from series score. Default 4.
+   */
+  seriesLeadPriorGames?: number;
+  /**
+   * Fraction of `min(evA, evB)` deducted per same-conference pick pair.
+   * Default 0.2 (20% of the smaller pick's EV).
+   */
+  conferencePenaltyFactor?: number;
 };
 
 export const DEFAULT_PROJECTION_CONFIG = {
   baselineP: 0.5,
   ppgPriorWeight: 15,
   maxRound: STANLEY_CUP_MAX_ROUND,
+  seriesLeadPriorGames: 4,
+  conferencePenaltyFactor: 0.2,
 } as const;
 
 type SeriesProbabilityTables = {
@@ -170,6 +186,22 @@ export function blendedPpg(args: {
 }
 
 /**
+ * Bayesian-adjusted per-game win probability given current series state.
+ * Treats series wins as observations against a neutral (baselineP) prior of
+ * `priorGames` games. At 0-0 returns baselineP exactly.
+ */
+function bayesianSeriesP(
+  teamWins: number,
+  opponentWins: number,
+  baselineP: number,
+  priorGames: number,
+): number {
+  const totalGames = teamWins + opponentWins;
+  if (totalGames === 0) return baselineP;
+  return (priorGames * baselineP + teamWins) / (priorGames + totalGames);
+}
+
+/**
  * Expected remaining games and wins for every NHL team appearing in the bracket.
  * Eliminated teams map to 0. Teams alive but not yet in any later-round slot
  * still walk forward to round 4 with `baselineP` probability each round.
@@ -177,6 +209,8 @@ export function blendedPpg(args: {
 export type TeamProjectionMaps = {
   expectedGamesByAbbrev: Map<string, number>;
   expectedWinsByAbbrev: Map<string, number>;
+  /** Probability each team advances their current in-progress series. */
+  advanceProbByAbbrev: Map<string, number>;
 };
 
 export function buildTeamProjectionMaps(
@@ -186,6 +220,8 @@ export function buildTeamProjectionMaps(
 ): TeamProjectionMaps {
   const baselineP = config.baselineP ?? DEFAULT_PROJECTION_CONFIG.baselineP;
   const maxRound = config.maxRound ?? DEFAULT_PROJECTION_CONFIG.maxRound;
+  const priorGames =
+    config.seriesLeadPriorGames ?? DEFAULT_PROJECTION_CONFIG.seriesLeadPriorGames;
 
   type Slot = {
     round: number;
@@ -211,19 +247,20 @@ export function buildTeamProjectionMaps(
   for (const s of bracket.series) {
     const top = s.topSeedTeam?.abbrev?.trim().toUpperCase();
     const bot = s.bottomSeedTeam?.abbrev?.trim().toUpperCase();
+    const adjP = bayesianSeriesP(s.topSeedWins, s.bottomSeedWins, baselineP, priorGames);
     considerSlot(top, {
       round: s.playoffRound,
       seriesAbbrev: s.seriesAbbrev,
       teamWins: s.topSeedWins,
       opponentWins: s.bottomSeedWins,
-      perGameP: baselineP,
+      perGameP: adjP,
     });
     considerSlot(bot, {
       round: s.playoffRound,
       seriesAbbrev: s.seriesAbbrev,
       teamWins: s.bottomSeedWins,
       opponentWins: s.topSeedWins,
-      perGameP: 1 - baselineP,
+      perGameP: 1 - adjP,
     });
   }
 
@@ -234,11 +271,13 @@ export function buildTeamProjectionMaps(
 
   const expectedGamesByAbbrev = new Map<string, number>();
   const expectedWinsByAbbrev = new Map<string, number>();
+  const advanceProbByAbbrev = new Map<string, number>();
 
   for (const [abbrev, slot] of slotByTeam) {
     if (statusByAbbrev.get(abbrev) === "eliminated") {
       expectedGamesByAbbrev.set(abbrev, 0);
       expectedWinsByAbbrev.set(abbrev, 0);
+      advanceProbByAbbrev.set(abbrev, 0);
       continue;
     }
 
@@ -258,6 +297,8 @@ export function buildTeamProjectionMaps(
       slot.perGameP,
     );
 
+    advanceProbByAbbrev.set(abbrev, pAdvanceNow);
+
     let totalGames = remGamesNow;
     let totalWins = remWinsNow;
     let pReachNextRound = pAdvanceNow;
@@ -276,10 +317,31 @@ export function buildTeamProjectionMaps(
     if (status === "eliminated" && !expectedGamesByAbbrev.has(abbrev)) {
       expectedGamesByAbbrev.set(abbrev, 0);
       expectedWinsByAbbrev.set(abbrev, 0);
+      advanceProbByAbbrev.set(abbrev, 0);
     }
   }
 
-  return { expectedGamesByAbbrev, expectedWinsByAbbrev };
+  return { expectedGamesByAbbrev, expectedWinsByAbbrev, advanceProbByAbbrev };
+}
+
+/**
+ * Derives a conference assignment for every team appearing in the bracket.
+ * Uses the earliest-round series for each team so teams keep their East/West
+ * classification even after they advance to the Conference Final or SCF.
+ */
+export function buildTeamConferenceMap(
+  bracket: PlayoffBracketResponse,
+): Map<string, BracketConferenceBucket> {
+  const map = new Map<string, BracketConferenceBucket>();
+  const sorted = [...bracket.series].sort((a, b) => a.playoffRound - b.playoffRound);
+  for (const s of sorted) {
+    const conf = conferenceForSeries(s);
+    const top = s.topSeedTeam?.abbrev?.trim().toUpperCase();
+    const bot = s.bottomSeedTeam?.abbrev?.trim().toUpperCase();
+    if (top && !map.has(top)) map.set(top, conf);
+    if (bot && !map.has(bot)) map.set(bot, conf);
+  }
+  return map;
 }
 
 export type ProjectedPickEv = {
@@ -391,6 +453,101 @@ export function detectInSeriesCollisions(
   return out;
 }
 
+export type ProjectedFutureCollision = {
+  /** "east" | "west" for same-conference pairs; "final" for cross-conference pairs. */
+  conference: BracketConferenceBucket;
+  /** The two team abbreviations involved. */
+  teamAbbrevs: [string, string];
+  /** Pick labels from this pool team on both clubs. */
+  pickLabels: string[];
+  /** Points subtracted from `projectedRemaining` to account for mutual elimination risk. */
+  penalty: number;
+};
+
+/**
+ * Detects pairs of alive picks from the same pool team that will inevitably
+ * meet before the Stanley Cup Final (same conference) or at the Final (cross-
+ * conference). Excludes pairs already flagged by `detectInSeriesCollisions`.
+ * Returns the collision list and the total penalty to deduct from projectedRemaining.
+ */
+export function detectFutureConferenceCollisions(
+  team: PoolTeam,
+  perPickEv: ProjectedPickEv[],
+  bracket: PlayoffBracketResponse,
+  statusByAbbrev: ReadonlyMap<string, NhlTeamPlayoffStatus>,
+  advanceProbByAbbrev: ReadonlyMap<string, number>,
+  penaltyFactor: number,
+): { futureCollisions: ProjectedFutureCollision[]; totalPenalty: number } {
+  if (bracket.series.length === 0) {
+    return { futureCollisions: [], totalPenalty: 0 };
+  }
+
+  const conferenceMap = buildTeamConferenceMap(bracket);
+
+  const currentOpponentPairs = new Set<string>();
+  for (const s of bracket.series) {
+    const top = s.topSeedTeam?.abbrev?.trim().toUpperCase();
+    const bot = s.bottomSeedTeam?.abbrev?.trim().toUpperCase();
+    if (!top || !bot) continue;
+    if (
+      statusByAbbrev.get(top) === "eliminated" ||
+      statusByAbbrev.get(bot) === "eliminated"
+    ) continue;
+    currentOpponentPairs.add(`${top}:${bot}`);
+    currentOpponentPairs.add(`${bot}:${top}`);
+  }
+
+  const evByAbbrev = new Map<string, number>();
+  const labelsByAbbrev = new Map<string, string[]>();
+  for (const p of perPickEv) {
+    const abbrev = p.teamAbbrev?.trim().toUpperCase();
+    if (!abbrev) continue;
+    if (statusByAbbrev.get(abbrev) === "eliminated") continue;
+    evByAbbrev.set(abbrev, (evByAbbrev.get(abbrev) ?? 0) + p.ev);
+    const arr = labelsByAbbrev.get(abbrev) ?? [];
+    arr.push(p.label);
+    labelsByAbbrev.set(abbrev, arr);
+  }
+
+  const aliveAbbrevs = [...evByAbbrev.keys()];
+  const futureCollisions: ProjectedFutureCollision[] = [];
+  let totalPenalty = 0;
+
+  for (let i = 0; i < aliveAbbrevs.length; i++) {
+    for (let j = i + 1; j < aliveAbbrevs.length; j++) {
+      const abbrevA = aliveAbbrevs[i];
+      const abbrevB = aliveAbbrevs[j];
+
+      const confA = conferenceMap.get(abbrevA);
+      const confB = conferenceMap.get(abbrevB);
+      if (!confA || !confB) continue;
+
+      if (currentOpponentPairs.has(`${abbrevA}:${abbrevB}`)) continue;
+
+      const evA = evByAbbrev.get(abbrevA) ?? 0;
+      const evB = evByAbbrev.get(abbrevB) ?? 0;
+      const pA = advanceProbByAbbrev.get(abbrevA) ?? 0.5;
+      const pB = advanceProbByAbbrev.get(abbrevB) ?? 0.5;
+      const penalty = pA * pB * Math.min(evA, evB) * penaltyFactor;
+
+      if (penalty <= 0) continue;
+
+      futureCollisions.push({
+        conference: confA === confB ? confA : "final",
+        teamAbbrevs: [abbrevA, abbrevB],
+        pickLabels: [
+          ...(labelsByAbbrev.get(abbrevA) ?? []),
+          ...(labelsByAbbrev.get(abbrevB) ?? []),
+        ],
+        penalty,
+      });
+      totalPenalty += penalty;
+    }
+  }
+
+  return { futureCollisions, totalPenalty };
+}
+
 export type PoolTeamProjection = {
   teamId: string;
   totalToDate: number;
@@ -404,6 +561,7 @@ export type PoolTeamProjection = {
     ev: number;
   } | null;
   collisions: ProjectedCollision[];
+  futureCollisions: ProjectedFutureCollision[];
 };
 
 export function projectPoolTeam(
@@ -414,12 +572,34 @@ export function projectPoolTeam(
     maps: TeamProjectionMaps;
     bracket: PlayoffBracketResponse;
     statusByAbbrev: ReadonlyMap<string, NhlTeamPlayoffStatus>;
+    config?: ProjectionConfig;
   },
 ): PoolTeamProjection {
+  const penaltyFactor =
+    args.config?.conferencePenaltyFactor ??
+    DEFAULT_PROJECTION_CONFIG.conferencePenaltyFactor;
+
   const perPickEv = team.picks.map((p) =>
     projectPickEv(p, args.ppgByPlayerId, args.maps),
   );
-  const projectedRemaining = perPickEv.reduce((s, p) => s + p.ev, 0);
+  const rawProjectedRemaining = perPickEv.reduce((s, p) => s + p.ev, 0);
+
+  const collisions = detectInSeriesCollisions(
+    team,
+    args.bracket,
+    args.statusByAbbrev,
+  );
+
+  const { futureCollisions, totalPenalty } = detectFutureConferenceCollisions(
+    team,
+    perPickEv,
+    args.bracket,
+    args.statusByAbbrev,
+    args.maps.advanceProbByAbbrev,
+    penaltyFactor,
+  );
+
+  const projectedRemaining = rawProjectedRemaining - totalPenalty;
   const projectedFinal = args.totalToDate + projectedRemaining;
 
   let bestPick: PoolTeamProjection["bestPick"] = null;
@@ -435,12 +615,6 @@ export function projectPoolTeam(
     }
   }
 
-  const collisions = detectInSeriesCollisions(
-    team,
-    args.bracket,
-    args.statusByAbbrev,
-  );
-
   return {
     teamId: team.id,
     totalToDate: args.totalToDate,
@@ -449,5 +623,6 @@ export function projectPoolTeam(
     perPickEv,
     bestPick,
     collisions,
+    futureCollisions,
   };
 }
