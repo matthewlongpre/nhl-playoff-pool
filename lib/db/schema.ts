@@ -107,3 +107,24 @@ export const nhlScoreboardDayCache = pgTable(
 );
 
 export type NhlScoreboardDayCacheRow = typeof nhlScoreboardDayCache.$inferSelect;
+
+/**
+ * Records when each NHL team was eliminated from the playoffs, derived from the
+ * scoreboard day cache (series clinching games). PK on (abbrev, season) ensures
+ * one row per team per season; `ON CONFLICT DO NOTHING` during ingest preserves
+ * the earliest-detected date across reingests.
+ */
+export const poolNhlEliminationEvents = pgTable(
+  "pool_nhl_elimination_events",
+  {
+    nhlTeamAbbrev: text("nhl_team_abbrev").notNull(),
+    eliminatedDate: date("eliminated_date", { mode: "string" }).notNull(),
+    playoffSeason: integer("playoff_season").notNull(),
+  },
+  (t) => ({
+    pk: primaryKey({ columns: [t.nhlTeamAbbrev, t.playoffSeason] }),
+  }),
+);
+
+export type PoolNhlEliminationEventRow =
+  typeof poolNhlEliminationEvents.$inferSelect;

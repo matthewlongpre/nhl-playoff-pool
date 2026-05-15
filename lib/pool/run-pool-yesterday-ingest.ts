@@ -1,6 +1,8 @@
 import { NextResponse } from "next/server";
 import { ingestPoolPointsForCalendarDate } from "@/lib/pool/ingest-daily-points";
 import { materializePoolIngestSnapshotsForDate } from "@/lib/pool/pool-ingest-snapshots";
+import { recordEliminationsForDate } from "@/lib/pool/detect-elimination-events";
+import { getDb } from "@/lib/db";
 import {
   poolCalendarToday,
   getPoolPlayoffStartDate,
@@ -64,11 +66,16 @@ export async function runPoolYesterdaySnapshotOnly(): Promise<NextResponse> {
   }
 
   const snapshot = await materializePoolIngestSnapshotsForDate(w.yesterday);
+  const db = getDb();
+  const newEliminations = db
+    ? await recordEliminationsForDate(db, w.yesterday)
+    : [];
   return NextResponse.json({
     ok: true,
     phase: "materialize",
     date: w.yesterday,
     snapshot,
+    newEliminations,
   });
 }
 

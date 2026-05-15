@@ -141,9 +141,15 @@ function buildPpgByPlayerId(args: {
   return ppg;
 }
 
+export type ProjectionPayloadOverrides = {
+  bracket?: PlayoffBracketResponse | null;
+  statusByAbbrev?: ReadonlyMap<string, NhlTeamPlayoffStatus>;
+};
+
 /** Shared by `/api/pool/projection` and nightly ingest snapshot materialization. */
 export async function buildProjectionPayload(
   date: string,
+  overrides?: ProjectionPayloadOverrides,
 ): Promise<ProjectionResponsePayload> {
   const today = poolCalendarToday();
   const playoffStart = getPoolPlayoffStartDate();
@@ -158,20 +164,26 @@ export async function buildProjectionPayload(
   const leaderboardPromise = getCachedLeaderboardResponse(date);
 
   let bracket: PlayoffBracketResponse | null = null;
-  let statusByAbbrev: Map<string, NhlTeamPlayoffStatus> = new Map();
+  let statusByAbbrev: ReadonlyMap<string, NhlTeamPlayoffStatus> = new Map();
   let bracketAvailable = false;
-  try {
-    const [b, s] = await Promise.all([
-      getCachedPlayoffBracket(playoffSeasonFromDate(date)),
-      getCachedPlayoffTeamStatusByDate(date),
-    ]);
-    bracket = b;
-    statusByAbbrev = s;
-    bracketAvailable = true;
-  } catch {
-    bracket = null;
-    statusByAbbrev = new Map();
-    bracketAvailable = false;
+  if (overrides) {
+    bracket = overrides.bracket ?? null;
+    statusByAbbrev = overrides.statusByAbbrev ?? new Map();
+    bracketAvailable = bracket != null;
+  } else {
+    try {
+      const [b, s] = await Promise.all([
+        getCachedPlayoffBracket(playoffSeasonFromDate(date)),
+        getCachedPlayoffTeamStatusByDate(date),
+      ]);
+      bracket = b;
+      statusByAbbrev = s;
+      bracketAvailable = true;
+    } catch {
+      bracket = null;
+      statusByAbbrev = new Map();
+      bracketAvailable = false;
+    }
   }
 
   const [seasonRates, playoffAgg, leaderboard] = await Promise.all([

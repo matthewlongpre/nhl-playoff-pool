@@ -20,6 +20,7 @@ import type { NhlScoreboardApiResponse } from "@/lib/nhl/schemas";
 import type { SkaterDaySource, TeamWinDaySource } from "@/lib/pool/day-sources";
 import { poolCalendarToday, previousCalendarDay } from "@/lib/pool/pool-season";
 import { PoolDailyPointsChart } from "@/components/pool-daily-points-chart";
+import { PoolProjectionHistory } from "@/components/pool-projection-history";
 import { PoolPickDistribution } from "@/components/pool-pick-distribution";
 import { PoolReview } from "@/components/pool-review";
 import { PoolRosterOutlook } from "@/components/pool-roster-outlook";
@@ -590,7 +591,11 @@ export function PoolStandings({
             ) : null}
           </div>
 
-          <div id="team-mix" className="order-7 mt-10 scroll-mt-4">
+          <div className="order-7 mt-10">
+            <PoolProjectionHistory />
+          </div>
+
+          <div id="team-mix" className="order-8 mt-10 scroll-mt-4">
             <PoolPickDistribution asOfDate={today} onOpenPoolTeam={goToTeamDetail} />
           </div>
         </div>
