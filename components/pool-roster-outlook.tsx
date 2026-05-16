@@ -34,7 +34,7 @@ type ProjectionRow = {
     pickLabels: string[];
   }>;
   futureCollisions: Array<{
-    conference: "east" | "west" | "final";
+    conference: string;
     teamAbbrevs: [string, string];
     pickLabels: string[];
     penalty: number;
@@ -519,7 +519,7 @@ function OutlookRow({
     runwayStackedBarWidths(row);
 
   const collisionCount = row.collisions.length;
-  const futureCollisionCount = row.futureCollisions?.length ?? 0;
+  const futureCollisionCount = row.futureCollisions.length;
   const teamWinPicksDescription =
     row.teamWinPicks.length > 0
       ? ` Team-win clubs: ${row.teamWinPicks
@@ -537,6 +537,9 @@ function OutlookRow({
       : `Holding rank ${row.scoredRank}. `) +
     (collisionCount > 0
       ? `${collisionCount} pick collision${collisionCount === 1 ? "" : "s"} flagged. `
+      : "") +
+    (futureCollisionCount > 0
+      ? `${futureCollisionCount} same-conference pick pair${futureCollisionCount === 1 ? "" : "s"} that will eventually collide. `
       : "") +
     "Open team detail.";
 
@@ -757,6 +760,16 @@ function OutlookRow({
                       {`${futureCollisionCount} future collision${futureCollisionCount === 1 ? "" : "s"}`}
                     </span>
                   ) : null}
+                </span>
+              ) : null}
+              {futureCollisionCount > 0 ? (
+                <span
+                  className="inline-flex w-fit shrink-0 items-center whitespace-nowrap rounded-full bg-orange-50 px-2 py-0.5 text-[0.6rem] font-semibold text-orange-700 ring-1 ring-orange-200/70 dark:bg-orange-950/30 dark:text-orange-300 dark:ring-orange-900/40 sm:ml-auto"
+                  title={row.futureCollisions
+                    .map((fc) => `${fc.teamAbbrevs.join(" vs ")} (${fc.conference})`)
+                    .join("; ")}
+                >
+                  {`${futureCollisionCount} conf. path clash`}
                 </span>
               ) : null}
             </div>
