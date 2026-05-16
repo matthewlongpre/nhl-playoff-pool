@@ -1,11 +1,11 @@
-import type {
-  NhlTeamPlayoffStatus,
-  PlayoffBracketResponse,
-} from "@/lib/nhl/schemas";
 import {
   conferenceForSeries,
   type BracketConferenceBucket,
 } from "@/lib/nhl/playoff-bracket-layout";
+import type {
+  NhlTeamPlayoffStatus,
+  PlayoffBracketResponse,
+} from "@/lib/nhl/schemas";
 import type { PoolPick, PoolTeam } from "@/lib/pool/roster-schema";
 
 /** Stanley Cup playoff has 4 rounds (R1 → R2 → R3 → R4). */
