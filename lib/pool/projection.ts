@@ -226,7 +226,7 @@ export function buildTeamProjectionMaps(
 
   type Slot = {
     round: number;
-    seriesAbbrev: string;
+    seriesAbbrev: string | undefined;
     teamWins: number;
     opponentWins: number;
     perGameP: number;
@@ -382,7 +382,7 @@ export function projectPickEv(
 }
 
 export type ProjectedCollision = {
-  seriesAbbrev: string;
+  seriesAbbrev: string | undefined;
   round: number;
   /** [topSeedAbbrev, bottomSeedAbbrev], uppercased. */
   teamAbbrevs: [string, string];

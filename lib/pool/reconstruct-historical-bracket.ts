@@ -6,7 +6,7 @@ import { scoreboardResponseSchema } from "@/lib/nhl/schemas";
 import type { NhlTeamPlayoffStatus, PlayoffBracketResponse } from "@/lib/nhl/schemas";
 
 type SeriesState = {
-  seriesAbbrev: string;
+  seriesAbbrev: string | undefined;
   round: number;
   topSeedTeamAbbrev: string;
   bottomSeedTeamAbbrev: string;
