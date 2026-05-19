@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
+    "pool:ingest": "bash scripts/pool-ingest.sh",
     "pool:skater-names": "node scripts/generate-pool-skater-display-names.mjs",
     "db:push": "drizzle-kit push",
     "deploy": "vercel --prod",
