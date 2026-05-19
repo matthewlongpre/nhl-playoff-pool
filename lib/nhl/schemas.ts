@@ -27,7 +27,7 @@ export const scoreboardTeamSchema = z
 export const seriesStatusSchema = z
   .object({
     round: z.number(),
-    seriesAbbrev: z.string(),
+    seriesAbbrev: z.string().optional(),
     game: z.number(),
     /** May be absent on placeholder `FUT` / TBD games before the slot is filled. */
     topSeedTeamAbbrev: z.string().optional(),
@@ -95,7 +95,7 @@ export const playoffBracketTeamSchema = z
 
 export const playoffBracketSeriesSchema = z
   .object({
-    seriesAbbrev: z.string(),
+    seriesAbbrev: z.string().optional(),
     playoffRound: z.number(),
     topSeedWins: z.number(),
     bottomSeedWins: z.number(),
