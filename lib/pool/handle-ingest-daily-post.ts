@@ -6,6 +6,8 @@ import {
 } from "@/lib/pool/ingest-daily-points";
 import { joinErrorChain } from "@/lib/pool/db-error-chain";
 import { materializePoolIngestSnapshotsForDate } from "@/lib/pool/pool-ingest-snapshots";
+import { recordEliminationsForDate } from "@/lib/pool/detect-elimination-events";
+import { getDb } from "@/lib/db";
 
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
 
@@ -46,6 +48,7 @@ export async function handleIngestDailyPost(request: Request): Promise<NextRespo
       teamsWritten: number;
       skatersWritten: number;
       snapshot: Awaited<ReturnType<typeof materializePoolIngestSnapshotsForDate>>;
+      newEliminations: string[];
     };
     const results: IngestRangeRow[] = [];
     let cursor = parseISO(from);
@@ -56,7 +59,9 @@ export async function handleIngestDailyPost(request: Request): Promise<NextRespo
         assertIngestDateNotTodayIfStrict(ds, strictToday);
         const r = await ingestPoolPointsForCalendarDate(ds);
         const snapshot = await materializePoolIngestSnapshotsForDate(ds);
-        results.push({ date: ds, ...r, snapshot });
+        const db = getDb();
+        const newEliminations = db ? await recordEliminationsForDate(db, ds) : [];
+        results.push({ date: ds, ...r, snapshot, newEliminations });
       } catch (e) {
         console.error("[ingest-daily]", e);
         const message = e instanceof Error ? e.message : "Ingest failed";
@@ -88,7 +93,9 @@ export async function handleIngestDailyPost(request: Request): Promise<NextRespo
     assertIngestDateNotTodayIfStrict(date, strictToday);
     const r = await ingestPoolPointsForCalendarDate(date);
     const snapshot = await materializePoolIngestSnapshotsForDate(date);
-    return NextResponse.json({ ok: true, date, ...r, snapshot });
+    const db = getDb();
+    const newEliminations = db ? await recordEliminationsForDate(db, date) : [];
+    return NextResponse.json({ ok: true, date, ...r, snapshot, newEliminations });
   } catch (e) {
     console.error("[ingest-daily]", e);
     const message = e instanceof Error ? e.message : "Ingest failed";
