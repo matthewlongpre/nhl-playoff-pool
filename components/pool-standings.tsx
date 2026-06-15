@@ -451,10 +451,10 @@ export function PoolStandings({
                   Pool Champion
                 </p>
                 <p className="truncate font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
-                  {standingsQuery.data.standings[0].name}{" "}
-                  <span className="font-normal text-zinc-500 dark:text-zinc-400">
-                    ({standingsQuery.data.standings[0].ownerName})
-                  </span>
+                  {standingsQuery.data.standings[0].name}
+                </p>
+                <p className="truncate text-xs font-medium text-zinc-500 dark:text-zinc-400">
+                  {standingsQuery.data.standings[0].ownerName}
                 </p>
               </div>
             </div>
