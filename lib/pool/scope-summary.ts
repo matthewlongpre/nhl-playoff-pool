@@ -132,6 +132,8 @@ export type ScopeSummary = {
 
   /** Teams tied for the top in-window cumulative total (empty when none). */
   topPoolTeams: TopPoolTeam[];
+  /** Teams tied for the most in-window points from team-win picks (empty when none). */
+  topTeamWinTeams: TopPoolTeam[];
   /** Teams tied for the best single-day total in scope (empty when none). */
   biggestDays: BiggestDay[];
   mvpSkater: MvpSkater | null;
@@ -317,6 +319,38 @@ function buildTopPoolTeams(
   const maxTotal = Math.max(...candidates.map((c) => c.totalPoints));
   return candidates
     .filter((c) => c.totalPoints === maxTotal)
+    .sort((a, b) => a.teamId.localeCompare(b.teamId));
+}
+
+function buildTopTeamWinTeams(
+  rows: ReadonlyArray<TeamDailyRow>,
+  meta: ReadonlyMap<string, TeamMeta>,
+): TopPoolTeam[] {
+  type Acc = { skaterPoints: number; teamWinPoints: number };
+  const acc = new Map<string, Acc>();
+  for (const r of rows) {
+    const cur = acc.get(r.teamId) ?? { skaterPoints: 0, teamWinPoints: 0 };
+    cur.skaterPoints += r.skaterPoints;
+    cur.teamWinPoints += r.teamWinPoints;
+    acc.set(r.teamId, cur);
+  }
+
+  const candidates: TopPoolTeam[] = [];
+  for (const [teamId, totals] of acc) {
+    if (totals.teamWinPoints <= 0) continue;
+    const m = meta.get(teamId);
+    if (!m) continue;
+    candidates.push({
+      ...m,
+      totalPoints: totals.skaterPoints + totals.teamWinPoints,
+      skaterPoints: totals.skaterPoints,
+      teamWinPoints: totals.teamWinPoints,
+    });
+  }
+  if (candidates.length === 0) return [];
+  const maxTeamWin = Math.max(...candidates.map((c) => c.teamWinPoints));
+  return candidates
+    .filter((c) => c.teamWinPoints === maxTeamWin)
     .sort((a, b) => a.teamId.localeCompare(b.teamId));
 }
 
@@ -780,6 +814,7 @@ function composeScope(args: ComposeScopeArgs): ScopeSummary {
     endDate: args.endDate,
     daysCovered: args.dateSet.size,
     topPoolTeams: buildTopPoolTeams(teamRowsInScope, args.meta),
+    topTeamWinTeams: buildTopTeamWinTeams(teamRowsInScope, args.meta),
     biggestDays: buildBiggestDays(teamRowsInScope, args.meta),
     mvpSkater: args.poolPlayerStatsAvailable
       ? buildMvpSkater(totalsInScope, args.rosters)

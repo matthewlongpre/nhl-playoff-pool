@@ -313,6 +313,21 @@ describe("scope summary — pool-team tiles", () => {
         totalPoints: 12,
       }),
     ]);
+
+    /** topTeamWinTeams: R1 team-win totals alpha 2, beta 0, gamma 0 → alpha leads. */
+    expect(pickScope(out, 1).topTeamWinTeams).toEqual([
+      expect.objectContaining({
+        teamId: "alpha",
+        teamWinPoints: 2,
+      }),
+    ]);
+    /** R2 team-win totals: beta 1, alpha 0 → beta leads. */
+    expect(pickScope(out, 2).topTeamWinTeams).toEqual([
+      expect.objectContaining({
+        teamId: "beta",
+        teamWinPoints: 1,
+      }),
+    ]);
   });
 
   it("topPoolTeams returns every team tied for the in-window cumulative lead", () => {

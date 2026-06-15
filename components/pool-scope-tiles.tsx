@@ -226,6 +226,36 @@ function TopPoolTeamTile({ scope }: { scope: ScopeSummary }) {
   );
 }
 
+function TopTeamWinTile({ scope }: { scope: ScopeSummary }) {
+  const teams = scope.topTeamWinTeams ?? [];
+  if (teams.length === 0) {
+    return (
+      <TileEmpty label="Team wins" message={emptyMessage(scope, "No team wins yet.")} />
+    );
+  }
+  const heroPts = teams[0].teamWinPoints;
+  return (
+    <Tile label="Team wins" hero={heroPts} heroUnit="pts">
+      <div className="flex flex-col gap-2">
+        {tieBadge(teams.length)}
+        {teams.map((t) => (
+          <div
+            key={t.teamId}
+            className="flex flex-col gap-2.5 sm:flex-row sm:items-start sm:justify-between sm:gap-4"
+          >
+            <div className="min-w-0 flex-1">
+              <OwnerChip meta={t} size={32} />
+            </div>
+            <p className="shrink-0 text-[0.7rem] tabular-nums leading-snug text-zinc-500 sm:max-w-[48%] sm:text-right dark:text-zinc-400">
+              {teamDayBreakdown(t.skaterPoints, t.teamWinPoints)}
+            </p>
+          </div>
+        ))}
+      </div>
+    </Tile>
+  );
+}
+
 function BiggestDayTile({ scope }: { scope: ScopeSummary }) {
   const days = scope.biggestDays;
   if (days.length === 0) {
@@ -672,6 +702,7 @@ export function PoolScopeTiles({
     >
       <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
         <TopPoolTeamTile scope={scope} />
+        <TopTeamWinTile scope={scope} />
         <BiggestDayTile scope={scope} />
         {poolPlayerStatsAvailable ? <MvpSkaterTile scope={scope} /> : null}
         {poolPlayerStatsAvailable ? <BestSingleGameTile scope={scope} /> : null}
