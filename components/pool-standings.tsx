@@ -431,6 +431,35 @@ export function PoolStandings({
 
       {standingsQuery.data && poolView === "standings" ? (
         <div className="flex flex-col">
+          {standingsQuery.data.standings[0] ? (
+            <div className="order-0 mb-6 flex items-center gap-3 rounded-2xl bg-gradient-to-r from-amber-400/20 to-amber-300/10 px-4 py-3.5 ring-1 ring-amber-500/40 dark:from-amber-400/15 dark:to-amber-300/5 dark:ring-amber-400/30">
+              <span className="text-2xl" aria-hidden="true">
+                🏆
+              </span>
+              {ownerAvatarSrc(standingsQuery.data.standings[0].ownerAvatar) ? (
+                <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full bg-zinc-200/80 ring-2 ring-white dark:bg-zinc-800 dark:ring-zinc-950">
+                  <OwnerAvatarImage
+                    filename={standingsQuery.data.standings[0].ownerAvatar}
+                    width={44}
+                    height={44}
+                    className="h-11 w-11 object-cover object-top"
+                  />
+                </div>
+              ) : null}
+              <div className="min-w-0">
+                <p className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-amber-700 dark:text-amber-400">
+                  Pool Champion
+                </p>
+                <p className="truncate font-semibold tracking-tight text-zinc-900 dark:text-zinc-50">
+                  {standingsQuery.data.standings[0].name}{" "}
+                  <span className="font-normal text-zinc-500 dark:text-zinc-400">
+                    ({standingsQuery.data.standings[0].ownerName})
+                  </span>
+                </p>
+              </div>
+            </div>
+          ) : null}
+
           <ul className="order-1 space-y-2 sm:hidden" role="list" aria-label="Standings">
             {standingsQuery.data.standings.map((row) => (
               <li key={row.teamId}>
