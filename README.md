@@ -46,7 +46,18 @@ Create a managed Postgres instance on your provider (e.g. Neon, Supabase, RDS), 
 
 ### Ingest (cron and manual)
 
-Production runs [`vercel.json`](vercel.json) → daily **GET** `/api/pool/internal/cron-ingest-yesterday`, which writes yesterday’s pool-calendar fantasy totals to Postgres (same behavior as the cron). Trigger it yourself with the same secret Vercel uses:
+> **Crons are currently disabled** (offseason — no invocations, no billing). [`vercel.json`](vercel.json) has an empty config. To re-enable for next playoffs, restore the `crons` array and redeploy:
+>
+> ```json
+> {
+>   "crons": [
+>     { "path": "/api/pool/internal/cron-ingest-yesterday", "schedule": "0 9 * * *" },
+>     { "path": "/api/pool/internal/cron-materialize-yesterday", "schedule": "10 9 * * *" }
+>   ]
+> }
+> ```
+
+The route handlers below stay deployed and functional — only the schedule is off. **GET** `/api/pool/internal/cron-ingest-yesterday` writes yesterday’s pool-calendar fantasy totals to Postgres. Trigger it yourself with the same secret Vercel uses:
 
 ```bash
 curl -sS -H "Authorization: Bearer $CRON_SECRET" \
